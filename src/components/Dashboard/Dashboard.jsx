@@ -13,9 +13,12 @@ function Dashboard() {
         </h3>
       </div>
       <div id="searchBars">
-        <input type="text" placeholder="Find board game" />
+        <input type="text" placeholder="Find board game"  />
         <input type="text" placeholder="Find games in my area" />
         <input type="text" placeholder="Find games by date" />
+      </div>
+      <div id="searchResults">
+        <h3>Search Results will go here</h3>
       </div>
     </div>
   );

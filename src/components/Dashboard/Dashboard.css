@@ -1,0 +1,14 @@
+#recentPosts {
+    text-align: center;
+    float: left;
+    width: 25%;
+    height: 50vw;
+    background-color: #6700b0;
+    color: white;
+} 
+
+#searchBars {
+    margin-left: 10px;
+    float: left;
+    width: 65%;
+}

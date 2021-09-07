@@ -6,4 +6,4 @@
     [] Recent posts
     [x] Navigation buttons
     [x] Search Bars
-    []  
+[] Create Parties component

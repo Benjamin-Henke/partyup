@@ -15,6 +15,7 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
 // Import components
 import AboutPage from '../AboutPage/AboutPage';
+import CreateParties from '../CreateParties/CreateParties';
 import Dashboard from '../Dashboard/Dashboard';
 import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';

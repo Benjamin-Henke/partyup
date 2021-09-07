@@ -1,4 +1,4 @@
-export default function CreateParties() {
+export default function CreateParty() {
     return (
         <div>
             Create Party

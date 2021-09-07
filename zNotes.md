@@ -3,7 +3,7 @@
 [x] Login/Logout functionality
 [] Create Dashboard
     [x] upon login, push to /dashboard
-    [] Feedback box
-    [] Navigation buttons
-    [] Search Bars
-    [] 
+    [] Recent posts
+    [x] Navigation buttons
+    [x] Search Bars
+    []  

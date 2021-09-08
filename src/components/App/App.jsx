@@ -15,7 +15,7 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
 // Import components
 import AboutPage from '../AboutPage/AboutPage';
-import CreateParties from '../CreateParties/CreateParties';
+import CreateParty from '../CreateParty/CreateParty';
 import Dashboard from '../Dashboard/Dashboard';
 import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
@@ -60,6 +60,14 @@ function App() {
             path="/dashboard"
           >
             <Dashboard />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/create_party"
+          >
+            <CreateParty />
           </ProtectedRoute>
 
           <ProtectedRoute

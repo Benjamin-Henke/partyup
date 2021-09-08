@@ -2,33 +2,52 @@ import './CreateParty.css';
 import { useState } from 'react';
 import { useHistory } from 'react-router';
 import { useDispatch } from 'react-redux';
+import moment from 'moment';
 
 export default function CreateParty() {
     // Variables used for React hooks
     const history = useHistory();
     const dispatch = useDispatch();
 
+    // States used to concatenate date + time for database
+    const [date, setDate] = useState('');
+    const [time, setTime] = useState('');
+
+    // Handle date input
+    const handleDateChange = (e) => {
+        setDate(e.target.value)
+    } // end handleDateChange
+
+    // Handle time input
+    const handleTimeChange = (e) => {
+        setTime(e.target.value)
+    } // end handleDateChange
+
+    
     // Store user inputs into one local state variable
     const [newParty, setNewParty] = useState({
         boardGame: '',
         location: '',
         numberOfPlayers: '',
         experience: '',
-        date: '',
-        time: ''
+        dateTime: ''
     })
 
     // Handles inputs from the user
-    const handleInputChange = (event) => {
+    const handleInputChange = (e) => {
         setNewParty({
             // Spread-operator. Handles all user inputs
-            ...newParty,
-            [event.target.name]: event.target.value,
+            ...newParty, [e.target.name]: e.target.value,
         });
     } // end handleInputChange
 
     const onSubmit = (e) => {
         e.preventDefault();
+        console.log('Date', date);
+        console.log('Time', time);
+        let momentObj = moment(date + time, 'DD.MM.YYYY HH:mm');
+        let dateTime = momentObj.format('DD.MM.YYYY HH:mm')
+        console.log(dateTime);
         console.log('New Party', newParty);
     }
 
@@ -57,7 +76,7 @@ export default function CreateParty() {
                 />
                 <br />
                 <select name="experience" onChange={handleInputChange}>
-                    <option disabled>Experience</option>
+                    <option>Experience</option>
                     <option value="Novice">Novice</option>
                     <option value="Intermediate">Intermediate</option>
                     <option value="Expert">Expert</option>
@@ -75,16 +94,16 @@ export default function CreateParty() {
                     type="date" 
                     placeholder="Date" 
                     name="date"
-                    value={newParty.date}
-                    onChange={handleInputChange}
+                    value={date}
+                    onChange={handleDateChange}
                 />
                 <br />
                 <input 
                     type="time" 
                     placeholder="Time"
                     name="time" 
-                    value={newParty.time}
-                    onChange={handleInputChange}
+                    value={time}
+                    onChange={handleTimeChange}
                 />
                 <br />
                 <button type="submit">Create</button> 

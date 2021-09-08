@@ -7,3 +7,4 @@
     [x] Navigation buttons
     [x] Search Bars
 [] Create Parties component
+    [x] create inputs

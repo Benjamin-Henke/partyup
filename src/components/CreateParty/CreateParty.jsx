@@ -29,8 +29,7 @@ export default function CreateParty() {
         boardGame: '',
         location: '',
         numberOfPlayers: '',
-        experience: '',
-        dateTime: ''
+        experience: ''
     })
 
     // Handles inputs from the user
@@ -41,14 +40,23 @@ export default function CreateParty() {
         });
     } // end handleInputChange
 
+    // Handles when form is submitted via Create button
     const onSubmit = (e) => {
         e.preventDefault();
-        console.log('Date', date);
-        console.log('Time', time);
-        let momentObj = moment(date + time, 'DD.MM.YYYY HH:mm');
-        let dateTime = momentObj.format('DD.MM.YYYY HH:mm')
-        console.log(dateTime);
+
+        // Combine date and time to insert into database
+        let momentObj = moment(date + time, 'YYYY-MM-DD HH:mm').format();
+
+        // set dateTime as users Date and Time inputs
+        setNewParty({
+            ...newParty, dateTime: momentObj
+        })
         console.log('New Party', newParty);
+
+        // dispatch({
+        //     type: "NEW_PARTY_CREATED",
+        //     payload: newParty
+        // })
     }
 
     // Handles cancel button. Pushes user back to Dashboard
@@ -107,7 +115,6 @@ export default function CreateParty() {
                 />
                 <br />
                 <button type="submit">Create</button> 
-                <br />
                 <button onClick={cancelBtn}>Cancel</button>
             </form>
         </div>

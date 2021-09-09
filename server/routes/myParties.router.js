@@ -6,5 +6,12 @@ const router = express.Router();
  * GET route template
  */
 router.get('/', (req, res) => {
-    // GET route code here
+    let sqlText = `SELECT * FROM "parties"`;
+    pool.query(sqlText).then(result => {
+        console.log('My Parties response', result.rows);
+        res.send(result.rows);
+    }).catch(error => {
+        console.error('My PArties response error', error);
+        res.sendStatus(500);
+    })
 });

@@ -11,6 +11,7 @@ const passport = require('./strategies/user.strategy');
 const userRouter = require('./routes/user.router');
 const createPartyRouter = require('./routes/createParty.router');
 const myPartiesRouter = require('./routes/myParties.router');
+const recentPostsRouter = require('./routes/recentPosts.router');
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -27,6 +28,7 @@ app.use(passport.session());
 app.use('/api/user', userRouter);
 app.use('/api/create_party', createPartyRouter);
 app.use('/api/my_parties', myPartiesRouter);
+app.use('/api/recent_posts', recentPostsRouter);
 
 // Serve static files
 app.use(express.static('build'));

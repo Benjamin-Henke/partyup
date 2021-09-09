@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux"; 
+import './MyParties.css';
 
 
 export default function MyParties() {
@@ -24,7 +25,14 @@ export default function MyParties() {
     return (
         <div>
             {usersParties.map((party, index) => (
-                <h1 key={index}>{party.board_game}</h1>
+                <div className="card" key={index}>
+                    <div class="card-body">
+                        <h5 class="card-title">{party.board_game}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">{party.location}</h6>
+                        <p class="card-text">{party.number_of_players} players</p>
+                        <p class="card-text">{party.date_time}</p>
+                    </div>
+                </div>
             ))}
         </div>
     )

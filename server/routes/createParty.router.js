@@ -14,8 +14,8 @@ router.get('/', (req, res) => {
  */
 router.post('/', (req, res) => {
     const sqlText = `
-        INSERT INTO "parties" ("board_game", "number_of_players", "experience", "location", "date_time")
-        VALUES ($1, $2, $3, $4, $5)
+        INSERT INTO "parties" ("board_game", "number_of_players", "experience", "location", "date_time", ""user_id)
+        VALUES ($1, $2, $3, $4, $5, %6)
         `;
 
     const sqlParams = [
@@ -23,7 +23,8 @@ router.post('/', (req, res) => {
         req.body.numberOfPlayers,
         req.body.experience,
         req.body.location,
-        req.body.dateTime
+        req.body.dateTime,
+        req.user.id
     ]
 
     pool.query(sqlText, sqlParams).then(response => {

@@ -13,7 +13,26 @@ router.get('/', (req, res) => {
  * POST route template
  */
 router.post('/', (req, res) => {
-    // POST route code here
+    const sqlText = `
+        INSERT INTO "parties" ("board_game", "number_of_players", "experience", "location", "date_time")
+        VALUES ($1, $2, $3, $4, $5)
+        `;
+
+    const sqlParams = [
+        req.body.boardGame,
+        req.body.numberOfPlayers,
+        req.body.experience,
+        req.body.location,
+        req.body.dateTime
+    ]
+
+    pool.query(sqlText, sqlParams).then(response => {
+        console.log('Create Party POST working', response);
+        res.sendStatus(201)
+    }).catch(error => {
+        console.error('Create Party Post Error', error);
+        res.sendStatus(500);
+    })
 });
 
 module.exports = router;

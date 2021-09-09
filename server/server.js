@@ -24,7 +24,7 @@ app.use(passport.session());
 
 /* Routes */
 app.use('/api/user', userRouter);
-app.use('/api./create_party', createPartyRouter);
+app.use('/api/create_party', createPartyRouter);
 
 // Serve static files
 app.use(express.static('build'));

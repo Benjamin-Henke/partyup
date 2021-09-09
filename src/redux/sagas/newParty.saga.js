@@ -7,8 +7,9 @@ export default function* newPartySaga() {
 
 function* createParty(action) {
     try {
-        yield axios.post();
-    } catch {
-        
+        yield axios.post('/api/create_party', action.payload);
+    } catch (error) {
+        console.error('Error posting New Party', error);
+                
     }
 }

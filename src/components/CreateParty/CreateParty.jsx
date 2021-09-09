@@ -1,5 +1,5 @@
 import './CreateParty.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router';
 import { useDispatch } from 'react-redux';
 import moment from 'moment';
@@ -10,8 +10,8 @@ export default function CreateParty() {
     const dispatch = useDispatch();
 
     // // // States used to concatenate date + time for database
-    // const date = useState('');
-    // const time = useState('');
+    const date = useState('');
+    const time = useState('');
 
     // // // // Handle date input
     // // // const handleDateChange = (e) => {
@@ -30,8 +30,8 @@ export default function CreateParty() {
         location: '',
         numberOfPlayers: '',
         experience: '',
-        date: '',
-        time: '',
+        // date: '',
+        // time: '',
         dateTime: '2021-08-22 20:00' // NEED TO CHANGE, STUCK ON COMBINING THIS
     })
 
@@ -55,6 +55,10 @@ export default function CreateParty() {
 
     
     } // end handleInputChange
+
+    useEffect(() => {
+
+    }, [newParty])
 
     // Handles when form is submitted via Create button
     const onSubmit = (e) => {

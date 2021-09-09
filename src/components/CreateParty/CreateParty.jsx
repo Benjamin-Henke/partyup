@@ -9,19 +9,19 @@ export default function CreateParty() {
     const history = useHistory();
     const dispatch = useDispatch();
 
-    // States used to concatenate date + time for database
-    const [date, setDate] = useState('');
-    const [time, setTime] = useState('');
+    // // // States used to concatenate date + time for database
+    // const date = useState('');
+    // const time = useState('');
 
-    // Handle date input
-    const handleDateChange = (e) => {
-        setDate(e.target.value)
-    } // end handleDateChange
+    // // // // Handle date input
+    // // // const handleDateChange = (e) => {
+    // // //     setDate(e.target.value)
+    // // // } // end handleDateChange
 
-    // Handle time input
-    const handleTimeChange = (e) => {
-        setTime(e.target.value)
-    } // end handleDateChange
+    // // // // Handle time input
+    // // // const handleTimeChange = (e) => {
+    // // //     setTime(e.target.value)
+    // // // } // end handleDateChange
 
     
     // Store user inputs into one local state variable
@@ -29,34 +29,46 @@ export default function CreateParty() {
         boardGame: '',
         location: '',
         numberOfPlayers: '',
-        experience: ''
+        experience: '',
+        date: '',
+        time: '',
+        dateTime: '2021-08-22 20:00' // NEED TO CHANGE, STUCK ON COMBINING THIS
     })
 
     // Handles inputs from the user
     const handleInputChange = (e) => {
+        // setDate(e.target.value);
+        // setTime(e.target.value);
+        // // // Combine date and time to insert into database
+        // let momentObj = moment(date + time, 'YYYY-MM-DD HH:mm').format();
+
+        // // set dateTime as users Date and Time inputs
+        // setNewParty({
+        //     ...newParty, dateTime: momentObj
+        // })
+
+        // Grab other user information
         setNewParty({
             // Spread-operator. Handles all user inputs
             ...newParty, [e.target.name]: e.target.value,
         });
+
+    
     } // end handleInputChange
 
     // Handles when form is submitted via Create button
     const onSubmit = (e) => {
-        e.preventDefault();
-
-        // Combine date and time to insert into database
-        let momentObj = moment(date + time, 'YYYY-MM-DD HH:mm').format();
-
-        // set dateTime as users Date and Time inputs
-        setNewParty({
-            ...newParty, dateTime: momentObj
-        })
+        e.preventDefault(e);
         console.log('New Party', newParty);
+        
 
-        // dispatch({
-        //     type: "NEW_PARTY_CREATED",
-        //     payload: newParty
-        // })
+        dispatch({
+            type: "NEW_PARTY_CREATED",
+            payload: newParty
+        })
+
+        // Push user to My Parties
+        history.push('/dashboard'); // NEED TO CHANGE ONCE COMPONENT IS MADE
     }
 
     // Handles cancel button. Pushes user back to Dashboard
@@ -102,16 +114,16 @@ export default function CreateParty() {
                     type="date" 
                     placeholder="Date" 
                     name="date"
-                    value={date}
-                    onChange={handleDateChange}
+                    value={newParty.date}
+                    onChange={handleInputChange}
                 />
                 <br />
                 <input 
                     type="time" 
                     placeholder="Time"
                     name="time" 
-                    value={time}
-                    onChange={handleTimeChange}
+                    value={newParty.time}
+                    onChange={handleInputChange}
                 />
                 <br />
                 <button type="submit">Create</button> 

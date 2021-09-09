@@ -11,7 +11,9 @@ router.get('/', (req, res) => {
         console.log('My Parties response', result.rows);
         res.send(result.rows);
     }).catch(error => {
-        console.error('My PArties response error', error);
+        console.error('My Parties response error', error);
         res.sendStatus(500);
     })
 });
+
+module.exports = router;

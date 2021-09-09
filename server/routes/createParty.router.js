@@ -2,16 +2,8 @@ const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 
-/**
- * GET route template
- */
-router.get('/', (req, res) => {
-    // GET route code here
-});
 
-/**
- * POST route template
- */
+// POST users inputs to the database
 router.post('/', (req, res) => {
     const sqlText = `
         INSERT INTO "parties" ("board_game", "number_of_players", "experience", "location", "date_time", ""user_id)

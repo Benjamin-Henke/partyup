@@ -7,7 +7,11 @@ export default function* fetchMyParties() {
 
 function* fetchParties() {
     try {
-        const response = yield axios.get('/api/my_parties')
+        const response = yield axios.get('/api/my_parties');
+        yield put({
+            type: 'SET_MY_PARTIES',
+            payload: response.data
+        })
     } catch (error) {
         console.error('Error posting New Party', error);
 

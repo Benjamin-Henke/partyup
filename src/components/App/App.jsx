@@ -20,6 +20,7 @@ import Dashboard from '../Dashboard/Dashboard';
 import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
+import MyParties from '../MyParties/MyParties';
 import RegisterPage from '../RegisterPage/RegisterPage';
 
 import './App.css';
@@ -55,7 +56,7 @@ function App() {
             If the user is not logged in, the ProtectedRoute will show the LoginPage (component).
             Even though it seems like they are different pages, the user is always on localhost:3000/user */}
           <ProtectedRoute
-            // logged in shows UserPage else shows LoginPage
+            // logged in shows Dashboard Page else shows LoginPage
             exact
             path="/dashboard"
           >
@@ -63,11 +64,19 @@ function App() {
           </ProtectedRoute>
 
           <ProtectedRoute
-            // logged in shows InfoPage else shows LoginPage
+            // logged in shows CreateParty Page else shows LoginPage
             exact
             path="/create_party"
           >
             <CreateParty />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows My Parties Page else shows LoginPage
+            exact
+            path="/my_parties"
+          >
+            <MyParties />
           </ProtectedRoute>
 
           <ProtectedRoute

@@ -1,12 +1,11 @@
 import { useEffect } from "react";
-import { useDispatch } from "react-redux"; 
-
-
+import { useDispatch, useSelector } from "react-redux"; 
 
 
 export default function MyParties() {
     // Define hook variables
     const dispatch = useDispatch();
+    const myParties = useSelector(store => StorageEvent.myPartiesReducer)
 
     // Fetch on page load. Calls api/my_parties to get data
     useEffect(() => {
@@ -18,7 +17,6 @@ export default function MyParties() {
             type: "FETCH_MY_PARTIES"
         });
     } // end fetchParties
-
 
 
 

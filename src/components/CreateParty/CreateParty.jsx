@@ -1,5 +1,5 @@
 import './CreateParty.css';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useHistory } from 'react-router';
 import { useDispatch } from 'react-redux';
 import moment from 'moment';
@@ -9,66 +9,57 @@ export default function CreateParty() {
     const history = useHistory();
     const dispatch = useDispatch();
 
-    // // // States used to concatenate date + time for database
-    const date = useState('');
-    const time = useState('');
+    // Handle date input
+    const handleDateChange = (e) => {
+        setDate(e.target.value)
+    } // end handleDateChange
 
-    // // // // Handle date input
-    // // // const handleDateChange = (e) => {
-    // // //     setDate(e.target.value)
-    // // // } // end handleDateChange
+    // Handle time input
+    const handleTimeChange = (e) => {
+        setTime(e.target.value)
+    } // end handleDateChange
 
-    // // // // Handle time input
-    // // // const handleTimeChange = (e) => {
-    // // //     setTime(e.target.value)
-    // // // } // end handleDateChange
-
-    
     // Store user inputs into one local state variable
     const [newParty, setNewParty] = useState({
         boardGame: '',
         location: '',
         numberOfPlayers: '',
-        experience: '',
-        // date: '',
-        // time: '',
-        dateTime: '2021-08-22 20:00' // NEED TO CHANGE, STUCK ON COMBINING THIS
+        experience: ''
     })
+
+    const [date, setDate] = useState('');
+    const [time, setTime] = useState('');
+    let createdParty = {};
 
     // Handles inputs from the user
     const handleInputChange = (e) => {
-        // setDate(e.target.value);
-        // setTime(e.target.value);
-        // // // Combine date and time to insert into database
-        // let momentObj = moment(date + time, 'YYYY-MM-DD HH:mm').format();
-
-        // // set dateTime as users Date and Time inputs
-        // setNewParty({
-        //     ...newParty, dateTime: momentObj
-        // })
-
-        // Grab other user information
+        // Grab user information
         setNewParty({
             // Spread-operator. Handles all user inputs
             ...newParty, [e.target.name]: e.target.value,
         });
-
-    
     } // end handleInputChange
-
-    useEffect(() => {
-
-    }, [newParty])
 
     // Handles when form is submitted via Create button
     const onSubmit = (e) => {
         e.preventDefault(e);
-        console.log('New Party', newParty);
-        
+
+        let momentObj = moment(date + time, 'YYYY-MM-DD HH:mm').format();
+        console.log(momentObj);
+
+        createdParty = {
+            boardGame: newParty.boardGame,
+            location: newParty.location,
+            numberOfPlayers: newParty.numberOfPlayers,
+            experience: newParty.experience,
+            dateTime: momentObj
+        }
+
+        console.log(createdParty);
 
         dispatch({
             type: "NEW_PARTY_CREATED",
-            payload: newParty
+            payload: createdParty
         })
 
         // Push user to My Parties
@@ -118,16 +109,16 @@ export default function CreateParty() {
                     type="date" 
                     placeholder="Date" 
                     name="date"
-                    value={newParty.date}
-                    onChange={handleInputChange}
+                    value={date}
+                    onChange={handleDateChange}
                 />
                 <br />
                 <input 
                     type="time" 
                     placeholder="Time"
                     name="time" 
-                    value={newParty.time}
-                    onChange={handleInputChange}
+                    value={time}
+                    onChange={handleTimeChange}
                 />
                 <br />
                 <button type="submit">Create</button> 

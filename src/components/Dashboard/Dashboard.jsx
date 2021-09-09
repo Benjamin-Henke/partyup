@@ -2,6 +2,8 @@ import React from 'react';
 import {useSelector} from 'react-redux';
 import './Dashboard.css';
 
+import RecentPosts from '../RecentPosts/RecentPosts';
+
 function Dashboard() {
   // this component doesn't do much to start, just renders some user reducer info to the DOM
   const user = useSelector((store) => store.user);
@@ -10,6 +12,7 @@ function Dashboard() {
       <div id="recentPosts">
         <h3>
           Recent Posts
+          <RecentPosts />
         </h3>
       </div>
       <div id="searchBars">

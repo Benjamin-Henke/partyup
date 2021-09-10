@@ -1,6 +1,11 @@
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 
 export default function PartiesCard({party, index}) {
+
+    // Variable used for conditional rendering
+    const [editParty, setEditParty] = useState(true);
+
     // Called when delete button is clicked on individual cards
     // Sends DELETE request to myParties.router
     const deleteParty = (party) => {
@@ -14,7 +19,6 @@ export default function PartiesCard({party, index}) {
         } else {
             return;
         }
-
         fetchParties();
 
     }; // end deleteParty
@@ -28,10 +32,24 @@ export default function PartiesCard({party, index}) {
         let d = new Date(time);
         return d.toLocaleTimeString();
     }
+
+    // Conditional rendering to let user edit the party on the card
+    const toggleEditParty = (party) => {
+        setEditParty(!editParty);
+        switch (editParty) {
+            case true:
+                return;
+            case false:
+                return;
+            default:
+                return state
+        } // end switch statement
+    } // end toggleEditParty
+
     return (
         <div>
-            <div className="card" key={index}>
-                <div class="card-body">
+            <div key={index}>
+                <div>
                     <h5 class="card-title">{party.board_game}</h5>
                     <h6 class="card-subtitle mb-2 text-muted">{party.location}</h6>
                     <p class="card-text">{party.number_of_players} players</p>

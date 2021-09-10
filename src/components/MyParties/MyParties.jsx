@@ -1,15 +1,14 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router"; 
 import './MyParties.css';
 
 import PartiesCard from "../PartiesCards/PartiesCards";
+import EditParty from "../EditParty/EditParty";
 
 
 export default function MyParties() {
     // Define hook variables
     const dispatch = useDispatch();
-    const history = useHistory();
 
     // Obtain users data to be rendered on the DOM
     const usersParties = useSelector(store => store.myPartiesReducer);
@@ -41,66 +40,32 @@ export default function MyParties() {
         } // end switch statement
     } // end toggleEditParty
 
-    // Called when the edit button is clicked on individual cards
-    // Will send user to Edit Party Page
-    const editThisParty = (party) => {
-        console.log('Editing Party', party);
-        dispatch({
-            type: "EDIT_THIS_PARTY",
-            payload: party
-        })
-        history.push(`/edit_party/${party.id}`);
-        // dispatch({
-        //     type: "FETCH_MY_PARTIES",
-        // });
-    } // end editParty
+
 
 
 
     return (
         <div>
-            {editParty ?
-                <div id="party_cards">
-                    {usersParties.map((party, index) => (
-                        // {editParty ?""}
-                        <PartiesCard party={party} index={index} />
-                    ))}
+            {usersParties.map((party, index) => (
+                <div>
+                    {editParty ? 
+                        <div class="card">
+                            <div class="card-body">
+                                <PartiesCard party={party} index={index} />
+                                 <button onClick={() => toggleEditParty(party)}>Edit</button>
+                            </div>
+                           
+                        </div>
+                    :
+                        <div class="card">
+                            <div class="card-body">
+                                <EditParty party={party} index={index} />
+                                <button onClick={()=> toggleEditParty(party)}>Back</button>
+                            </div>
+                        </div>
+                    }
                 </div>
-            :
-                <div id="edit_party_cards" class="card-body">
-                    <input
-                        type="text"
-                        placeholder="Board Game"
-                    />
-                    <input
-                        type="number"
-                        placeholder="Number of Players"
-                    />
-                    <select name="experience">
-                        <option>Options:</option>
-                        <option value="Novice">Novice</option>
-                        <option value="Intermediate">Intermediate</option>
-                        <option value="Expert">Expert</option>
-                    </select>
-                    <input
-                        type="text"
-                        placeholder="Location"
-                        name="location"
-                    />
-                    <input
-                        type="date"
-                        name="date"
-                    />
-                    <br />
-                    <input
-                        type="time"
-                        name="time"
-                    />
-                    <button onClick={()=> {toggleEditParty()}}>Back</button>
-                    <button onClick={()=> editThisParty(party)}>Save</button>
-                </div>
-        }
-            
+            ))}
         </div>
     )
 }

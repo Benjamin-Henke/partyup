@@ -17,6 +17,7 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import AboutPage from '../AboutPage/AboutPage';
 import CreateParty from '../CreateParty/CreateParty';
 import Dashboard from '../Dashboard/Dashboard';
+import EditParty from '../EditParty/EditParty';
 import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
@@ -77,6 +78,13 @@ function App() {
             path="/my_parties"
           >
             <MyParties />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            exact
+            path="/edit_party/:id"
+          >
+            <EditParty />
           </ProtectedRoute>
 
           <ProtectedRoute

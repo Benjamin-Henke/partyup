@@ -2,9 +2,7 @@ const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 
-/**
- * GET route template
- */
+// GET request to retrieve all created parties from the user
 router.get('/', (req, res) => {
     let sqlText, sqlParams;
 
@@ -29,5 +27,18 @@ router.get('/', (req, res) => {
         res.sendStatus(500);
     })
 });
+
+// DELETE request to delete specific party on My Parties page
+router.delete(`/:id`, (req, res) => {
+    const sqlParams = [req.params.id];
+    const sqlText = `DELETE from "parties" WHERE id = $1;`;
+    pool.query(sqlText, sqlParams).then(response => {
+        console.log('DELETE successful', response);
+        res.sendStatus(200);
+    }).catch(error => {
+        console.error('DELETE Error', error);
+        res.sendStatus(500);
+    })
+})
 
 module.exports = router;

@@ -33,6 +33,9 @@ export default function MyParties() {
             payload: party
         })
         history.push(`/edit_party/${party.id}`);
+        // dispatch({
+        //     type: "FETCH_MY_PARTIES",
+        // });
     } // end editParty
 
     // Called when delete button is clicked on individual cards
@@ -53,6 +56,16 @@ export default function MyParties() {
        
     }; // end deleteParty
 
+    function formatDate(date){
+        let d = new Date(date);
+        return d.toLocaleDateString();
+    }
+
+    function formatTime(date){
+        let d = new Date(date);
+        return d.toLocaleTimeString();
+    }
+
     return (
         <div>
             {usersParties.map((party, index) => (
@@ -61,7 +74,8 @@ export default function MyParties() {
                         <h5 class="card-title">{party.board_game}</h5>
                         <h6 class="card-subtitle mb-2 text-muted">{party.location}</h6>
                         <p class="card-text">{party.number_of_players} players</p>
-                        <p class="card-text">{party.date_time}</p>
+                        <p class="card-text">{formatDate(party.date_time)}</p>
+                        <p class="card-text">{formatTime(party.date_time)}</p>
                         <button 
                             name="edit"
                             onClick={() => editParty(party)}

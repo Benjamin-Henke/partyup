@@ -1,9 +1,7 @@
-import axios from "axios";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router"; 
 import './MyParties.css';
-import EditParty from "../EditParty/EditParty";
 
 
 export default function MyParties() {
@@ -43,14 +41,15 @@ export default function MyParties() {
         console.log('Deleting Party', party.id);
         let confirmation = confirm(`Are you sure you want to delete ${party.board_game}?`);
         if (confirmation === true) {
-            axios.delete(`/api/my_parties/${id}`).then(response => {
-                fetchParties();
-            }).catch(error => {
-                console.error('DELETE Error', error);
-            })
+                dispatch ({
+                    type:"DELETE_THIS_PARTY",
+                    payload: party.id
+                })
         } else {
             return;
         }
+
+        fetchParties();
        
     }; // end deleteParty
 

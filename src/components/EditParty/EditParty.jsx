@@ -2,10 +2,11 @@ import { useSelector } from "react-redux";
 
 export default function EditParty({party}) {
     // Grab the party to be edited from myParties.reducer
-    console.log('Editing Party', party);
+    const partyToEdit = useSelector(store => store.myPartiesReducer)
+    console.log('Editing Party', partyToEdit);
     return (
         <div>
-            Let's edit {party}
+            Let's edit {partyToEdit.board_game}
         </div>
     )
 }

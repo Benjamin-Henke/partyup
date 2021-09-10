@@ -41,4 +41,7 @@ router.delete(`/:id`, (req, res) => {
     })
 })
 
+// PUT requests to edit a specific party
+
+
 module.exports = router;

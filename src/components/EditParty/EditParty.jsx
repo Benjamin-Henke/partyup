@@ -1,13 +1,12 @@
-import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 export default function EditParty({party, index}) {
+    // Define hook variables
+    const dispatch = useDispatch();
+
     // Grab the party to be edited from myParties.reducer
     const partyToEdit = useSelector(store => store.myPartiesReducer)
     console.log('Editing Party', partyToEdit);
-
-    // Variable used for conditional rendering
-    const [editParty, setEditParty] = useState(true);
 
     // Called when the edit button is clicked on individual cards
     // Will send user to Edit Party Page
@@ -38,7 +37,7 @@ export default function EditParty({party, index}) {
             </select>
             <input
                 type="text"
-                placeholder="Location"
+                placeholder={party.location}
                 name="location"
             />
             <input
@@ -50,7 +49,6 @@ export default function EditParty({party, index}) {
                 type="time"
                 name="time"
             />
-            <button onClick={() => { toggleEditParty() }}>Back</button>
             <button onClick={() => editThisParty(party)}>Save</button>
         </div>
     )

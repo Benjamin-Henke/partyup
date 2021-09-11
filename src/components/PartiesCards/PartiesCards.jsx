@@ -2,6 +2,14 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 
 export default function PartiesCard({party, index}) {
+    const dispatch = useDispatch();
+
+    // Handles dispatching event on page load to retrieve database
+    const fetchParties = () => {
+        dispatch({
+            type: "FETCH_MY_PARTIES"
+        });
+    } // end fetchParties
 
     // Called when delete button is clicked on individual cards
     // Sends DELETE request to myParties.router
@@ -12,12 +20,11 @@ export default function PartiesCard({party, index}) {
             dispatch({
                 type: "DELETE_THIS_PARTY",
                 payload: party.id
-            })
+            });
+            fetchParties();
         } else {
             return;
         }
-        fetchParties();
-
     }; // end deleteParty
 
     function formatDate(date) {

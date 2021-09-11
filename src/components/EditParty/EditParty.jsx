@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import moment from 'moment';
 
@@ -14,11 +14,18 @@ export default function EditParty({party, index}) {
     const handleDateChange = (e) => {
         setDate(e.target.value)
     } // end handleDateChange
-
     // Handle time input
     const handleTimeChange = (e) => {
         setTime(e.target.value)
     } // end handleDateChange
+    // Handles inputs from the user
+    const handleInputChange = (e) => {
+        // Grab user information
+        setEditedParty({
+            // Spread-operator. Handles all user inputs
+            ...editedParty, [e.target.name]: e.target.value,
+        });
+    } // end handleInputChange
 
     // Store user inputs into one local state variable
     const [editedParty, setEditedParty] = useState({
@@ -32,14 +39,12 @@ export default function EditParty({party, index}) {
     const [time, setTime] = useState('');
     let newEdits= {};
 
-    // Handles inputs from the user
-    const handleInputChange = (e) => {
-        // Grab user information
-        setEditedParty({
-            // Spread-operator. Handles all user inputs
-            ...editedParty, [e.target.name]: e.target.value,
+    // Handles dispatching event on page load to retrieve database
+    const fetchParties = () => {
+        dispatch({
+            type: "FETCH_MY_PARTIES"
         });
-    } // end handleInputChange
+    } // end fetchParties
 
     // Called when the edit button is clicked on individual cards
     // Will send user to Edit Party Page

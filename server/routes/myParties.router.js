@@ -42,6 +42,14 @@ router.delete(`/:id`, (req, res) => {
 })
 
 // PUT requests to edit a specific party
-
+router.put(`/:id`, (req, res) => {
+    console.log('Party id', req.params.id);
+    console.log('Party info', req.body);
+    
+    const sqlParams = [req.params.id]
+    const sqlText = ``;
+    
+    
+})
 
 module.exports = router;

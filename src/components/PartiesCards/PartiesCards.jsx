@@ -37,6 +37,7 @@ export default function PartiesCard({party, index}) {
                     <h5 class="card-title">{party.board_game}</h5>
                     <h6 class="card-subtitle mb-2 text-muted">{party.location}</h6>
                     <p class="card-text">{party.number_of_players} players</p>
+                    <p class="card-text">Difficulty: {party.experience}</p>
                     <p class="card-text">{formatDate(party.date_time)}</p>
                     <p class="card-text">{formatTime(party.date_time)}</p>
                     <button

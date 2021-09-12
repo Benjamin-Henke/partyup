@@ -1,12 +1,12 @@
 // Stores the users created parties
 // Will be appended on MyParties Pages
-const userPartiesReducer = (state = [], action) => {
+const editedPartyReducer = (state = [], action) => {
     switch (action.type) {
-        case 'SET_MY_PARTIES':
+        case 'EDIT_THIS_PARTY':
             return action.payload;
         default:
             return state;
     }
 }
 
-export default userPartiesReducer;
+export default editedPartyReducer;

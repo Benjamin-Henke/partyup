@@ -2,13 +2,9 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import moment from 'moment';
 
-export default function EditParty({party, index}) {
+export default function EditParty({party}) {
     // Define hook variables
     const dispatch = useDispatch();
-
-    // Grab the party to be edited from myParties.reducer
-    const partyToEdit = useSelector(store => store.myPartiesReducer)
-    console.log('Editing Party', partyToEdit);
 
     // Handle date input
     const handleDateChange = (e) => {
@@ -55,9 +51,9 @@ export default function EditParty({party, index}) {
         newEdits = {
             id: party.id,
             boardGame: editedParty.boardGame,
-            location: editedParty.location,
             numberOfPlayers: editedParty.numberOfPlayers,
             experience: editedParty.experience,
+            location: editedParty.location,
             dateTime: momentObj
         }
         dispatch({

@@ -62,8 +62,10 @@ export default function CreateParty() {
             payload: createdParty
         })
 
-        // Push user to My Parties
-        history.push('/dashboard'); // NEED TO CHANGE ONCE COMPONENT IS MADE
+        // Clear user data
+        setDate('');
+        setTime('');
+        setNewParty({});
     }
 
     // Handles cancel button. Pushes user back to Dashboard

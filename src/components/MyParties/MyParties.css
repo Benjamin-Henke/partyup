@@ -1,5 +1,21 @@
+button {
+    margin: 5px;
+    padding: 5px;
+    border: 0ch;
+    color: white;
+    background-color: #500041;
+}
+button:hover {
+  background-color: #fe8c00;
+  text-decoration: none;
+}
+
 .card {
     width: 20rem;
     display:inline-block;
     margin: 10px;
+    border-color: #fe8c00;
+    border-width: 3px;
+
 }
+

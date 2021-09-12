@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import moment from 'moment';
 
+
+
 export default function EditParty({party}) {
     // Define hook variables
     const dispatch = useDispatch();

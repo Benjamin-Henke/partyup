@@ -42,14 +42,31 @@ router.delete(`/:id`, (req, res) => {
 })
 
 // PUT requests to edit a specific party
-router.put(`/:id`, (req, res) => {
-    console.log('Party id', req.params.id);
-    console.log('Party info', req.body);
-    
-    const sqlParams = [req.params.id]
-    const sqlText = ``;
-    
-    
+router.put(`/:id`, (req, res) => {  
+    const sqlText = `
+        UPDATE "parties" 
+        SET 
+            "board_game" = $2, 
+            "number_of_players" = $3, 
+            "experience" = $4, 
+            "location" = $5, 
+            "date_time" = $6
+        WHERE "id" = $1
+        `;
+    const sqlParams = [
+        req.params.id,                // $1
+        req.body.board_game,          // $2
+        req.body.number_of_players,   // $3
+        req.body.experience,          // $4
+        req.body.location,            // $5
+        req.body.date_time,           // $6
+    ];
+    pool.query(sqlText, sqlParams).then(dbRes => {
+        res.sendStatus(200);
+    }).catch(error => {
+        console.error('PUT Error', error);
+        res.sendStatus(500);
+    })
 })
 
 module.exports = router;

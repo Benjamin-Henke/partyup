@@ -64,6 +64,7 @@ export default function EditParty({party, index}) {
             type: "EDIT_THIS_PARTY",
             payload: newEdits
         })
+        fetchParties();
     } // end editParty
 
 
@@ -75,6 +76,7 @@ export default function EditParty({party, index}) {
                 name="boardGame"
                 value={editedParty.boardGame}
                 onChange={handleInputChange}
+                required
             />
             <input
                 type="number"
@@ -82,9 +84,10 @@ export default function EditParty({party, index}) {
                 name="numberOfPlayers"
                 value={editedParty.numberOfPlayers}
                 onChange={handleInputChange}
+                required
             />
-            <select name="experience" onChange={handleInputChange}>
-                <option>Experience</option>
+            <select name="experience" onChange={handleInputChange} required >
+                <option selected disabled value="">Experience</option>
                 <option value="Novice">Novice</option>
                 <option value="Intermediate">Intermediate</option>
                 <option value="Expert">Expert</option>
@@ -95,12 +98,14 @@ export default function EditParty({party, index}) {
                 name="location"
                 value={editedParty.location}
                 onChange={handleInputChange}
+                required
             />
             <input
                 type="date"
                 name="date"
                 value={date}
                 onChange={handleDateChange}
+                required
             />
             <br />
             <input
@@ -108,6 +113,7 @@ export default function EditParty({party, index}) {
                 name="time"
                 value={time}
                 onChange={handleTimeChange}
+                required
             />
             <button onClick={() => editThisParty(party)}>Save</button>
         </div>

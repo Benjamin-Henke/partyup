@@ -80,6 +80,7 @@ export default function CreateParty() {
                     name="boardGame" 
                     value={newParty.boardGame}
                     onChange={handleInputChange}
+                    required
                 />  
                 <br />
                 <input
@@ -88,10 +89,11 @@ export default function CreateParty() {
                     name="numberOfPlayers"
                     value={newParty.numberOfPlayers}
                     onChange={handleInputChange}
+                    required
                 />
                 <br />
-                <select name="experience" onChange={handleInputChange}>
-                    <option>Experience</option>
+                <select name="experience" onChange={handleInputChange} required >
+                    <option selected disabled value="">Experience</option>
                     <option value="Novice">Novice</option>
                     <option value="Intermediate">Intermediate</option>
                     <option value="Expert">Expert</option>
@@ -103,6 +105,7 @@ export default function CreateParty() {
                     name="location"
                     value={newParty.location}
                     onChange={handleInputChange}
+                    required
                 />
                 <br />
                 <input 
@@ -111,6 +114,7 @@ export default function CreateParty() {
                     name="date"
                     value={date}
                     onChange={handleDateChange}
+                    required
                 />
                 <br />
                 <input 
@@ -119,6 +123,7 @@ export default function CreateParty() {
                     name="time" 
                     value={time}
                     onChange={handleTimeChange}
+                    required
                 />
                 <br />
                 <button type="submit">Create</button> 

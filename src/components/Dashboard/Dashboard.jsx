@@ -2,7 +2,7 @@ import React from 'react';
 import {useSelector} from 'react-redux';
 import './Dashboard.css';
 
-import RecentPosts from '../RecentPosts/RecentPosts';
+import UpcomingEvents from '../UpcomingEvents/UpcomingEvents';
 
 function Dashboard() {
   // this component doesn't do much to start, just renders some user reducer info to the DOM
@@ -11,8 +11,8 @@ function Dashboard() {
     <div className="container">
       <div id="recentPosts">
         <h3>
-          Recent Posts
-          <RecentPosts />
+          Upcoming Events
+          <UpcomingEvents />
         </h3>
       </div>
       <div id="searchBars">

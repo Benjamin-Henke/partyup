@@ -22,9 +22,13 @@ export default function RecentPosts () {
     return (
         <div>
             {upcoming.map((events) => 
-                <div>
-                    {events.board_game}
-                </div>    
+                <div class="card">
+                    <h5 class="card-header">{events.board_game}</h5>
+                    <div class="card-body">
+                        <h6 class="card-subtitle mb-2 text-muted">{events.location}</h6>
+                        <a href="#" class="btn btn-secondary">Go somewhere</a>
+                    </div>
+                </div>
             )}
         </div>
     )

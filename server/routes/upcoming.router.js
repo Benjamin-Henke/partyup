@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
     // GET the 5 most recent posts
         // Will i need to timestamp the database when a user creates a user?
     let sqlText = `
-        SELECT FROM "parties"
+        SELECT * FROM "parties"
         ORDER BY "date_time" ASC
         LIMIT 5;
     `;

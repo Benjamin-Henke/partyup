@@ -15,11 +15,13 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
 // Import components
 import AboutPage from '../AboutPage/AboutPage';
-import CreateParties from '../CreateParties/CreateParties';
+import CreateParty from '../CreateParty/CreateParty';
 import Dashboard from '../Dashboard/Dashboard';
+import EditParty from '../EditParty/EditParty';
 import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
+import MyParties from '../MyParties/MyParties';
 import RegisterPage from '../RegisterPage/RegisterPage';
 
 import './App.css';
@@ -35,7 +37,7 @@ function App() {
 
   return (
     <Router>
-      <div>
+      <div className="mainBody">
         <Nav />
         <Switch>
           {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
@@ -55,11 +57,34 @@ function App() {
             If the user is not logged in, the ProtectedRoute will show the LoginPage (component).
             Even though it seems like they are different pages, the user is always on localhost:3000/user */}
           <ProtectedRoute
-            // logged in shows UserPage else shows LoginPage
+            // logged in shows Dashboard Page else shows LoginPage
             exact
             path="/dashboard"
           >
             <Dashboard />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows CreateParty Page else shows LoginPage
+            exact
+            path="/create_party"
+          >
+            <CreateParty />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows My Parties Page else shows LoginPage
+            exact
+            path="/my_parties"
+          >
+            <MyParties />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            exact
+            path="/edit_party/:id"
+          >
+            <EditParty />
           </ProtectedRoute>
 
           <ProtectedRoute

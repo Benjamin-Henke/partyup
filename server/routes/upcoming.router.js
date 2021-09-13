@@ -9,7 +9,14 @@ router.get('/', (req, res) => {
     // GET the 5 most recent posts
         // Will i need to timestamp the database when a user creates a user?
     let sqlText = `
-        SELECT * FROM "parties"
+        SELECT
+            "board_game",
+            "number_of_players",
+	        "username"
+        FROM "parties"
+        JOIN "user"
+	        ON "parties".user_id = "user".id
+        WHERE "date_time" >= now()::timestamp
         ORDER BY "date_time" ASC
         LIMIT 4;
     `;

@@ -1,19 +1,49 @@
-import React from 'react';
-import {useSelector} from 'react-redux';
+import React, {useEffect} from 'react';
+import { useDispatch, useSelector } from "react-redux";
 import './Dashboard.css';
 
-import UpcomingEvents from '../UpcomingEvents/UpcomingEvents';
 
 function Dashboard() {
+  // Set hook variables
+  const dispatch = useDispatch();
   // this component doesn't do much to start, just renders some user reducer info to the DOM
   const user = useSelector((store) => store.user);
+  const upcoming = useSelector(store => store.upcomingEvents)
+
+  // Fetch on page load. Calls api/my_parties to get data
+  useEffect(() => {
+    fetchUpcomingParties();
+  }, []); // end useEffect
+
+  const fetchUpcomingParties = () => {
+    dispatch({
+      type: "FETCH_UPCOMING_EVENTS"  // upcomingEvents.saga
+    })
+  }
+
   return (
     <div className="container">
       <div id="recentPosts">
         <h3>
           Upcoming Events
-          <UpcomingEvents />
+          <div>
+            {upcoming.map((events) =>
+              <div class="card" className="upcomingCards">
+                <h5 class="card-header" id="nameHeader">{events.board_game}
+                  <button
+                    id="joinBtn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-check-fill" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M15.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L12.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z" /><path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" /></svg>
+                  </button>
+                </h5>
+                <div class="card-body">
+                  <h6 id="loc" class="card-subtitle mb-2 text-muted">By {events.username}</h6>
+                  <p>Players {events.number_of_players}</p>
+                </div>
+              </div>
+            )}
+          </div>
         </h3>
+
       </div>
       <div id="searchBars">
         <input type="text" placeholder="Find board game"  />

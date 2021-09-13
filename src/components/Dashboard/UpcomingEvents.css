@@ -1,0 +1,24 @@
+p {
+    font-size: 14px;
+}
+
+.upcomingCards {
+    text-align: left;
+}
+
+#joinBtn {
+    margin: 0;
+    padding: 0;
+    background: none;
+    color: #500041;
+    float: right;
+}
+
+#joinBtn:hover {
+    color: #fe8c00;
+    vertical-align: middle;
+}
+
+#nameHeader {
+    display:inline-flexbox;
+}

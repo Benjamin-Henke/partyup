@@ -108,6 +108,7 @@ export default function PartiesCard({party, index}) {
             payload: newEdits
         })
         fetchParties();
+
         toggleEditParty();
     } // end editParty
 
@@ -161,7 +162,7 @@ export default function PartiesCard({party, index}) {
                             required
                         />
                         <select name="experience" onChange={handleInputChange} required >
-                            <option disabled value>Experience</option>
+                            <option selected disabled value>Experience</option>
                             <option value="Novice">Novice</option>
                             <option value="Intermediate">Intermediate</option>
                             <option value="Expert">Expert</option>

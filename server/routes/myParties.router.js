@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
         sqlText = `
         SELECT * FROM "parties"
         WHERE user_id = $1
-        ORDER BY "id" ASC
+        ORDER BY "date_time" ASC
         `;
         sqlParams = [req.user.id]
     }

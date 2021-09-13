@@ -1,4 +1,5 @@
 .createPartyContainer {
+    float: left;
     text-align: center;
     background-color: white;
     border-style:outset;

@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
     let sqlText = `
         SELECT * FROM "parties"
         ORDER BY "date_time" ASC
-        LIMIT 5;
+        LIMIT 4;
     `;
     pool.query(sqlText).then(result => {
         console.log('Recent Posts Results', result.rows);

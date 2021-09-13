@@ -14,7 +14,7 @@ import Footer from '../Footer/Footer';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
 // Import components
-import AboutPage from '../AboutPage/AboutPage';
+import AboutPage from './AboutPage/AboutPage';
 import CreateParty from '../CreateParty/CreateParty';
 import Dashboard from '../Dashboard/Dashboard';
 import EditParty from '../EditParty/EditParty';
@@ -90,7 +90,7 @@ function App() {
           <ProtectedRoute
             // logged in shows InfoPage else shows LoginPage
             exact
-            path="/info"
+            path="/account_info"
           >
             <InfoPage />
           </ProtectedRoute>

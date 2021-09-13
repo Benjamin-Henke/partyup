@@ -1,3 +1,13 @@
 #loc {
     font-size: 14px;
 }
+
+#joinBtn {
+    background: none;
+    color: #500041;
+    float: right;
+}
+
+#joinBtn:hover {
+    color: #fe8c00;
+}

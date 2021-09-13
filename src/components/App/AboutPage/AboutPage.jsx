@@ -7,10 +7,8 @@ import React from 'react';
 
 function AboutPage() {
   return (
-    <div className="bottomNav">
-      <div>
-        <p>This about page is for anyone to read!</p>
-      </div>
+    <div>
+        <p>&copy; Benjamin Henke 2021 </p>
     </div>
   );
 }

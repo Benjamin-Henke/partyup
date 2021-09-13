@@ -8,7 +8,7 @@ import React from 'react';
 function InfoPage() {
   return (
     <div className="container">
-      <p>Info Page</p>
+      <p> &copy; Benjamin Henke 2021  </p>
     </div>
   );
 }

@@ -17,7 +17,7 @@ router.get('/', (req, res) => {
         console.log('Recent Posts Results', result.rows);
         res.send(result.rows)
     }).catch(error => {
-        console.error('Recent Posts Error');
+        console.error('Recent Posts Error', error);
     })
 });
 

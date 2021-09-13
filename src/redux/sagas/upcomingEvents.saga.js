@@ -7,7 +7,11 @@ export default function* recentPostsSaga() {
 
 function* upcomingEvents() {
     try {
-        yield axios.get('/api/recent_posts');
+        const response = yield axios.get('/api/upcoming');
+        yield put ({
+            type: "SET_UPCOMING_EVENTS",
+            payload: response.data
+        })
     } catch (error) {
         console.error('Error posting New Party', error);
     }

@@ -86,7 +86,8 @@ export default function PartiesCard({party, index}) {
 
     // Called when the edit button is clicked on individual cards
     // Will send user to Edit Party Page
-    const editThisParty = (party) => {
+    const editThisParty = (party, e) => {
+        e.preventDefault(e);
         let momentObj = moment(date + time, 'YYYY-MM-DD HH:mm').format();
         console.log(momentObj);
 
@@ -110,7 +111,7 @@ export default function PartiesCard({party, index}) {
         <div>
             {editParty ?
 
-                <div key={index}>
+                <div key={index} className="renderedCards">
                     <div>
                         <h5 class="card-title">{party.board_game}</h5>
                         <h6 class="card-subtitle mb-2 text-muted">{party.location}</h6>
@@ -136,7 +137,7 @@ export default function PartiesCard({party, index}) {
             :
 
                 <div>
-                    <div>
+                    <form onSubmit={editThisParty} className="renderedCards">
                         <input
                             type="text"
                             placeholder={party.board_game}
@@ -182,11 +183,9 @@ export default function PartiesCard({party, index}) {
                             onChange={handleTimeChange}
                             required
                         />
-                        <button onClick={() => editThisParty(party)}>Save</button>
-                        <button
-                            onClick={()=> { toggleEditParty(party)}}
-                        >Back</button>
-                    </div>
+                        <button type="submit">Save</button>
+                        <button onClick={()=> { toggleEditParty(party)}}>Back</button>
+                    </form>
                 </div>
 
             }

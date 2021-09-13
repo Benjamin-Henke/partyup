@@ -76,7 +76,7 @@ export default function CreateParty() {
     return (
         <div className="createPartyContainer">
             <form onSubmit={onSubmit}>
-                <input 
+                <input className="createForm"
                     type="text" 
                     placeholder="Board Game" 
                     name="boardGame" 
@@ -85,7 +85,7 @@ export default function CreateParty() {
                     required
                 />  
                 <br />
-                <input
+                <input className="createForm"
                     type="number"
                     placeholder="Number of Players"
                     name="numberOfPlayers"
@@ -94,14 +94,14 @@ export default function CreateParty() {
                     required
                 />
                 <br />
-                <select name="experience" onChange={handleInputChange} required >
+                <select className="createForm" name="experience" onChange={handleInputChange} required >
                     <option selected disabled value="">Experience</option>
                     <option value="Novice">Novice</option>
                     <option value="Intermediate">Intermediate</option>
                     <option value="Expert">Expert</option>
                 </select>
                 <br />
-                <input 
+                <input className="createForm"
                     type="text" 
                     placeholder="Address, City, State, Zip"
                     name="location"
@@ -110,7 +110,7 @@ export default function CreateParty() {
                     required
                 />
                 <br />
-                <input 
+                <input className="createForm"
                     type="date" 
                     placeholder="Date" 
                     name="date"
@@ -119,7 +119,7 @@ export default function CreateParty() {
                     required
                 />
                 <br />
-                <input 
+                <input className="createForm"
                     type="time" 
                     placeholder="Time"
                     name="time" 
@@ -128,8 +128,8 @@ export default function CreateParty() {
                     required
                 />
                 <br />
-                <button type="submit">Create</button> 
-                <button onClick={cancelBtn}>Cancel</button>
+                <button className="createButton" type="submit">Create</button>
+                <button className="createButton" onClick={cancelBtn}>Cancel</button>
             </form>
         </div>
     )

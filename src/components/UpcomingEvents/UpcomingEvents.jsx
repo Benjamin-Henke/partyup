@@ -12,7 +12,7 @@ export default function RecentPosts () {
 
     const fetchRecentParties = () => {
         dispatch({
-            type: "FETCH_RECENT_POSTS"  // recentPosts.saga
+            type: "FETCH_UPCOMING_EVENTS"  // recentPosts.saga
         })
     }
 

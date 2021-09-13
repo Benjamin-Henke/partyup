@@ -1,3 +1,7 @@
+// Commented out currently as I need to figure out how to send data to a different section on the Dash <DOM>
+
+
+/*
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -40,3 +44,4 @@ export default function RecentPosts () {
         </div>
     )
 }
+*/

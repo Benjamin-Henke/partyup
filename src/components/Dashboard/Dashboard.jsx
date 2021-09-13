@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import './Dashboard.css';
+import './UpcomingEvents.css'
 
 
 function Dashboard() {
@@ -23,6 +24,11 @@ function Dashboard() {
 
   return (
     <div className="container">
+      <div id="searchBars">
+        <input type="text" placeholder="Find board game" />
+        <input type="text" placeholder="Find games in my area" />
+        <input type="text" placeholder="Find games by date" />
+      </div>
       <div id="recentPosts">
         <h3>
           Upcoming Events
@@ -43,13 +49,8 @@ function Dashboard() {
             )}
           </div>
         </h3>
-
       </div>
-      <div id="searchBars">
-        <input type="text" placeholder="Find board game"  />
-        <input type="text" placeholder="Find games in my area" />
-        <input type="text" placeholder="Find games by date" />
-      </div>
+  
       <div id="searchResults">
         <h3>Search Results will go here</h3>
       </div>

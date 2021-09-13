@@ -4,6 +4,7 @@ import registrationSaga from './registration.saga';
 import userSaga from './user.saga';
 import newPartySaga from './newParty.saga';
 import myPartiesSaga from './myParties.saga';
+import upcomingEvents from './upcomingEvents.saga';
 // import newPartySaga from './newParty.saga';
 
 // rootSaga is the primary saga.
@@ -19,6 +20,7 @@ export default function* rootSaga() {
     registrationSaga(),
     userSaga(),
     newPartySaga(),
-    myPartiesSaga()
+    myPartiesSaga(),
+    upcomingEvents()
   ]);
 }

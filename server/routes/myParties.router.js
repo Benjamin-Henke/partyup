@@ -2,8 +2,12 @@ const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 
+const {
+    rejectUnauthenticated,
+} = require('../modules/authentication-middleware');
+
 // GET request to retrieve all created parties from the user
-router.get('/', (req, res) => {
+router.get('/', rejectUnauthenticated, (req, res) => {
     let sqlText, sqlParams;
 
     if (req.user.authLevel === 'ADMIN') {
@@ -30,7 +34,7 @@ router.get('/', (req, res) => {
 });
 
 // DELETE request to delete specific party on My Parties page
-router.delete(`/:id`, (req, res) => {
+router.delete(`/:id`, rejectUnauthenticated, (req, res) => {
     const sqlParams = [req.params.id];
     const sqlText = `DELETE from "parties" WHERE id = $1;`;
     pool.query(sqlText, sqlParams).then(response => {

@@ -2,10 +2,14 @@ const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 
+const {
+    rejectUnauthenticated,
+} = require('../modules/authentication-middleware');
+
 /**
  * GET route template
  */
-router.get('/', (req, res) => {
+router.get('/', rejectUnauthenticated, (req, res) => {
     // GET the 5 most recent posts
         // Will i need to timestamp the database when a user creates a user?
     let sqlText = `

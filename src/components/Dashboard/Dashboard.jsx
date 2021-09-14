@@ -52,11 +52,11 @@ function Dashboard() {
     console.log('party id', party.id);
     console.log('number of players', party.number_of_players);
     let joinInfo = {
-      id: party.id,
+      partyId: party.id,
       players: party.number_of_players
     }
     dispatch({
-      type: "JOIN_PARTY",
+      type: "JOINING_A_PARTY",
       payload: joinInfo
     })
   }

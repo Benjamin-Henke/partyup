@@ -10,7 +10,7 @@ const {
 // POST users inputs to the database
 router.post('/', rejectUnauthenticated,(req, res) => {
     const sqlText = `
-        INSERT INTO "parties" ("board_game", "number_of_players", "experience", "location", "date_time", "user_id")
+        INSERT INTO "parties" ("board_game", "number_of_players", "experience", "location", "date_time", "owner_id")
         VALUES ($1, $2, $3, $4, $5, $6)
         `;
 
@@ -20,7 +20,7 @@ router.post('/', rejectUnauthenticated,(req, res) => {
         req.body.experience,
         req.body.location,
         req.body.dateTime,
-        req.user.id
+        req.user.id,
     ]
 
     pool.query(sqlText, sqlParams).then(response => {

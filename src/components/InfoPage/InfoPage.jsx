@@ -12,6 +12,7 @@ function InfoPage() {
   return (
     <div className="container">
       <h3>{user.username}</h3>
+      <h3>{user.email}</h3>
       <LogOutButton className="logoutBtn" />
     </div>
   );

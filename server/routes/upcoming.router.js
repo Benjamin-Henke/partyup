@@ -19,10 +19,11 @@ router.get('/', rejectUnauthenticated, (req, res) => {
             "experience",
             "parties"."location",
             "date_time",
-	        "username"
+	        "username",
+            "parties"."id"
         FROM "parties"
         JOIN "user"
-	        ON "parties".user_id = "user".id
+	        ON "parties".owner_id = "user".id
         WHERE "date_time" >= now()::timestamp
         ORDER BY "date_time" ASC
         LIMIT 4;

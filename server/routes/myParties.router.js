@@ -18,7 +18,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
         // Regular users see only their pets
         sqlText = `
         SELECT * FROM "parties"
-        WHERE user_id = $1
+        WHERE owner_id = $1
         ORDER BY "date_time" ASC
         `;
         sqlParams = [req.user.id]

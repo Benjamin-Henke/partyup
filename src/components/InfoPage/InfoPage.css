@@ -1,0 +1,20 @@
+.logoutBtn {
+  display:block ;
+  color: #f2f2f2;
+  background-color: #fe8c00;
+  text-align: center;
+  padding: 24px 10px;
+  text-decoration: none;
+  font-size: 15px;
+  float: left;
+
+  /* these last two make the logout button in
+  the nav bar look like another link */
+  border: none;
+  cursor: pointer;
+  outline: 0;
+}
+
+.navLink:hover {
+  color: #500041
+}

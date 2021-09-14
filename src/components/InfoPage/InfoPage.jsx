@@ -1,4 +1,5 @@
 import React from 'react';
+import LogOutButton from '../LogOutButton/LogOutButton';
 
 // This is one of our simplest components
 // It doesn't have local state
@@ -8,6 +9,7 @@ import React from 'react';
 function InfoPage() {
   return (
     <div className="container">
+      <LogOutButton className="logoutBtn" />
       <p> &copy; Benjamin Henke 2021  </p>
     </div>
   );

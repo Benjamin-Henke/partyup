@@ -8,9 +8,11 @@ function Dashboard() {
   // Set hook variables
   const dispatch = useDispatch();
   
+  // Pulling data from the store
   const user = useSelector((store) => store.user);
   const upcoming = useSelector(store => store.upcomingEvents);
   const info = useSelector(store => store.partyInfo);
+  console.log('partyInfo', info);
 
   // Fetch on page load. Calls api/my_parties to get data
   useEffect(() => {
@@ -68,6 +70,7 @@ function Dashboard() {
       </div>
   
       <div id="searchResults">
+        <h2>Hello</h2>
         <h3>{info.board_game}</h3>
       </div>
     </div>

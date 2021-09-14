@@ -1,4 +1,6 @@
 import React from 'react';
+import './AboutPage.css';
+import LogOutButton from '../LogOutButton/LogOutButton';
 
 // This is one of our simplest components
 // It doesn't have local state,
@@ -8,7 +10,7 @@ import React from 'react';
 function AboutPage() {
   return (
     <div>
-        <p>&copy; Benjamin Henke 2021 </p>
+      <p>&copy; Benjamin Henke 2021 </p>
     </div>
   );
 }

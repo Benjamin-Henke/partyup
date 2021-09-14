@@ -12,6 +12,9 @@ router.get('/', (req, res) => {
         SELECT
             "board_game",
             "number_of_players",
+            "experience",
+            "parties"."location",
+            "date_time",
 	        "username"
         FROM "parties"
         JOIN "user"

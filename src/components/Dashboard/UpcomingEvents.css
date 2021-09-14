@@ -6,15 +6,16 @@ p {
     text-align: left;
 }
 
-#joinBtn {
+#headerBtn {
     margin: 0;
     padding: 0;
+    padding-left: 10px;
     background: none;
     color: #500041;
     float: right;
 }
 
-#joinBtn:hover {
+#headerBtn:hover {
     color: #fe8c00;
     vertical-align: middle;
 }

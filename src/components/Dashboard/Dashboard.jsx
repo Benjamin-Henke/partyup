@@ -12,6 +12,8 @@ function Dashboard() {
   const user = useSelector((store) => store.user);
   const upcoming = useSelector(store => store.upcomingEvents);
   const info = useSelector(store => store.partyInfo);
+  const players = useSelector(store => store.currentPlayersReducer);
+
 
   // Fetch on page load. Calls api/my_parties to get data
   useEffect(() => {
@@ -32,6 +34,10 @@ function Dashboard() {
     dispatch({            
       type: "SET_PARTY_INFO",
       payload: party
+    })
+    dispatch({
+      type: "SHOW_CURRENT_PLAYERS",
+      payload: party.id
     })
   }
 
@@ -103,7 +109,18 @@ function Dashboard() {
                 <p class="card-text">Created by: {info.username}</p>
               
               <p class="card-text">Experience: {info.experience}</p>
+
+              <div>
+                Current Players:
+                {players.map((player, index) => (
+                    <div key={index}>
+                      <li>{player.username}</li>
+                    </div>
+                ))}
+              </div>
+              
             </div>
+
           }
       </div>
     </div>

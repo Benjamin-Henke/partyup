@@ -6,6 +6,7 @@ import editReducer from './editedParty.reducer';
 import upcomingEvents from './upcoming.reducer';
 import partyInfo from './partyInfo.reducer';
 import currentPlayersReducer from './currentPlayers.reducer';
+import searchBoardGameReducer from './searchBoardGame.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -21,6 +22,7 @@ const rootReducer = combineReducers({
   upcomingEvents,  // contains the next 4 events to happen based on current date
   partyInfo,  // contains the party info to be displayed on the dashboard
   currentPlayersReducer,  // contains the current players for a specific game
+  searchBoardGameReducer, // contains the board games from a search input
 });
 
 export default rootReducer;

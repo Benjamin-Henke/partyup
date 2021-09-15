@@ -9,6 +9,10 @@ function* searchBoardGame(action) {
     try {
         const response = yield axios.post('/api/search_game', {boardGame: action.payload});
         console.log('Board Games from DB Search', response);
+        yield put({
+            type: "SET_SEARCHED_BOARD_GAME",
+            payload: response
+        })
         
     } catch (error) {
         console.error('Error searching for board game', error);

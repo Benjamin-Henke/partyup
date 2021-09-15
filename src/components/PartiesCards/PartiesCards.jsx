@@ -1,10 +1,14 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import moment from "moment";
+
 
 export default function PartiesCard({party, index}) {
     // Set variable for hooks
     const dispatch = useDispatch();
+
+    // When players icon is selected, stores current players here
+    const players = useSelector(store => store.currentPlayersReducer);
 
     // Variable used for conditional rendering
     const [showEditParty, setShowEditParty] = useState(true);
@@ -113,12 +117,13 @@ export default function PartiesCard({party, index}) {
     } // end editParty
 
     function showPlayers(party) {
-        console.log('Show players for', party);
+        console.log('Show players for party', party);
         dispatch({
             type: "SHOW_CURRENT_PLAYERS",
             payload: party
         })
     } // end showPlayers
+
 
     return (
         <div>
@@ -149,7 +154,9 @@ export default function PartiesCard({party, index}) {
                         <button
                             className="partyCardBtn"
                             name="players"
-                            onClick={() => {showPlayers(party)}}
+                            data-bs-toggle="modal" 
+                            data-bs-target="#exampleModal"
+                            onClick={() => {showPlayers(party.id)}}
                         >
                             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16"><path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" /><path fill-rule="evenodd" d="M5.216 14A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216z" /><path d="M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z" /></svg>
                         </button>
@@ -211,7 +218,27 @@ export default function PartiesCard({party, index}) {
                         <button type="submit">Save</button>
                     </div>
                 </form>
-            }
+            } 
+            
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Current Players</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        {players.map((player, index) => (
+                        <div class="modal-body" key={index}>
+                            {player.username}
+                        </div>
+                        ))}
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+       
         </div>
     )
 }

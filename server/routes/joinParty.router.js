@@ -15,7 +15,8 @@ router.post('/', rejectUnauthenticated, (req, res) => {
     let sqlText, sqlParams;
 
     // Double check to see if the logged in user is already apart of the game
-    if (req.user.id === `users_id`) {
+    // Not working :(
+    if (req.user.id === 'users_id') {
         alert('You are already apart of this party.');
         return;
     } else {

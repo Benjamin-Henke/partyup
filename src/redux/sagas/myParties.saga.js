@@ -38,7 +38,7 @@ function* fetchParties() {
 
 function* showPlayers(action) {
     try {
-        const response = yield axios.get(`/api/my_parties/${action.payload.id}`, action.payload);
+        const response = yield axios.get(`/api/my_parties/${action.payload}`);
         console.log('Current Players', response);
         yield put({
             type: 'SET_CURRENT_PLAYERS',

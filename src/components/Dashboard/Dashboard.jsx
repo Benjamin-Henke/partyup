@@ -14,17 +14,45 @@ function Dashboard() {
   const info = useSelector(store => store.partyInfo);
   const players = useSelector(store => store.currentPlayersReducer);
 
+  
+
 
   // Fetch on page load. Calls api/my_parties to get data
   useEffect(() => {
     fetchUpcomingParties();
   }, []); // end useEffect
 
+  // Handles searching for upcoming events in the Upcoming Panel
   const fetchUpcomingParties = () => {
     dispatch({
       type: "FETCH_UPCOMING_EVENTS"  // upcomingEvents.saga
     })
   }
+
+  /* ----------------------------------
+      SEARCH BARS
+  ---------------------------------- */
+  // Local state variable for find board games search
+  const [findBoardGame, setFindBoardGame] = useState('');
+  
+  // Handles search for a board game by name
+  const handleFindBoardGameChange = (e) => {
+    setFindBoardGame(e.target.value)
+  }
+
+  // Runs on search button click
+  function searchForBoardGame() {
+    console.log('Searching for', findBoardGame);
+    dispatch({
+      type: "SEARCH_FOR_BOARD_GAME",
+      payload: findBoardGame
+    })
+
+    setFindBoardGame('');
+  }
+  /* ----------------------------------
+     END - SEARCH BARS
+ ---------------------------------- */
 
   // Handles the info button
   // Sends data to reducer to be used in the body section of the app
@@ -85,9 +113,22 @@ function Dashboard() {
   return (
     <div className="container">
       <div id="searchBars">
-        <input type="text" placeholder="Find board game" />
-        <input type="text" placeholder="Find games in my area" />
-        <input type="text" placeholder="Find games by date" />
+        <div id="findBoardGame">
+          <input 
+            type="text" 
+            placeholder="Find board game"
+            value={findBoardGame}
+            onChange={handleFindBoardGameChange}  
+          />
+          <button
+              className="searchBtn"
+              onClick={searchForBoardGame}
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-zoom-in" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z" /><path d="M10.344 11.742c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1 6.538 6.538 0 0 1-1.398 1.4z" /><path fill-rule="evenodd" d="M6.5 3a.5.5 0 0 1 .5.5V6h2.5a.5.5 0 0 1 0 1H7v2.5a.5.5 0 0 1-1 0V7H3.5a.5.5 0 0 1 0-1H6V3.5a.5.5 0 0 1 .5-.5z" /></svg>
+          </button>
+        </div>
+          <input type="text" placeholder="Find games in my area" />
+          <input type="text" placeholder="Find games by date" />
       </div>
       <div id="recentPosts">
         <h3>Upcoming Events</h3>

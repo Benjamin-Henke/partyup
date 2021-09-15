@@ -6,7 +6,7 @@ import newPartySaga from './newParty.saga';
 import myPartiesSaga from './myParties.saga';
 import upcomingEventsSaga from './upcomingEvents.saga';
 import joinPartySaga from './joinParty.saga';
-// import newPartySaga from './newParty.saga';
+import searchSaga from './search.saga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -23,6 +23,7 @@ export default function* rootSaga() {
     newPartySaga(),
     myPartiesSaga(),
     upcomingEventsSaga(),
-    joinPartySaga()
+    joinPartySaga(),
+    searchSaga()
   ]);
 }

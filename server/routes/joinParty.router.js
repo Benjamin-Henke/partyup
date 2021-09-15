@@ -16,12 +16,12 @@ router.post('/', rejectUnauthenticated, (req, res) => {
 
     // Double check to see if the logged in user is already apart of the game
     // I know the if statement is not valid since it isn't checking SQL
-    if (req.user.id === party.users_id) {
+    if (req.user.id === 'user_id') {
         alert('You are already apart of this party.');
         return;
     } else {
         sqlText = `
-        INSERT INTO "my_parties" ("users_id", "parties_id")
+        INSERT INTO "users_parties" ("users_id", "parties_id")
         VALUES ($1, $2);
         `;
 

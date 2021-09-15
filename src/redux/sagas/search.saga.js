@@ -7,7 +7,7 @@ export default function* searchSaga() {
 
 function* searchBoardGame(action) {
     try {
-        const response = yield axios.post('/api/search_game', {boardGame: action.payload});
+        const response = yield axios.get('/api/search_game', { params: { boardGame: action.payload }})       
         console.log('Board Games from DB Search', response.data);
         yield put({
             type: 'SET_SEARCHED_BOARD_GAME',

@@ -7,23 +7,23 @@ CREATE TABLE "user" (
     "id" SERIAL PRIMARY KEY,
     "username" VARCHAR (80) UNIQUE NOT NULL,
     "password" VARCHAR (1000) NOT NULL,
-    "avatar" VARCHAR (1000),
-    "location" VARCHAR (255)
+    "email" VARCHAR (255) UNIQUE NOT NULL
 );
 
 CREATE TABLE "parties" (
     "id" SERIAL PRIMARY KEY,
     "board_game" VARCHAR (255),
     "number_of_players" INTEGER,
+    "experience" VARCHAR (20),
+    "location" VARCHAR (255),
     "date_time" TIMESTAMP WITHOUT TIME ZONE,
-    "latitude" INTEGER,
+    "address" INTEGER,
     "longitude" INTEGER,
-    "place" VARCHAR (255)
+    "owner_id" INT REFERENCES "user"(id)
 );
 
-CREATE TABLE "my_parties" (
+CREATE TABLE "users_parties" (
     "id" SERIAL PRIMARY KEY,
-    "users_id" INT REFERENCES "user",
-    "parties_id" INT REFERENCES "parties"
+    "users_id" INT REFERENCES "user"(id),
+    "parties_id" INT REFERENCES "parties"(id) ON DELETE CASCADE
 );
-

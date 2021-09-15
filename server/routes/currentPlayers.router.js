@@ -10,7 +10,7 @@ const {
 router.delete(`/:id`, rejectUnauthenticated, (req, res) => {
     const sqlParams = [req.params.id];
     const sqlText = `
-        DELETE FROM "my_parties"
+        DELETE FROM "users_parties"
         WHERE users_id = $1;
     `;
     pool.query(sqlText, sqlParams).then(response => {

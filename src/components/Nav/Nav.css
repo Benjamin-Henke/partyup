@@ -65,3 +65,18 @@
   bottom: 0;
   width: 100%;
 }
+
+.searchBtn{
+  background-color: none;
+  color: white;
+}
+.searchBtn:hover{
+  color: #500041;
+}
+
+#findBoardGame {
+  background-color: #fe8c00;
+  border-width: 0;
+  border: 0;
+  text-decoration: none;
+}

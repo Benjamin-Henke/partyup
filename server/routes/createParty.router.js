@@ -29,7 +29,7 @@ router.post('/', rejectUnauthenticated,(req, res) => {
         console.log('New Party Id:', result.rows[0].id); // ID of the created party
 
     const insertIntoParty = `
-        INSERT INTO "my_parties" ("users_id", "parties_id")
+        INSERT INTO "users_parties" ("users_id", "parties_id")
         VALUES ($1, $2)
     `;
 
@@ -38,7 +38,7 @@ router.post('/', rejectUnauthenticated,(req, res) => {
         result.rows[0].id     // $2
     ]
 
-    // Second Query inserts the owner into the number of players ("my_parties" table) 
+    // Second Query inserts the owner into the number of players ("users_parties" table) 
         pool.query(insertIntoParty, insertOwnerAndPartyId).then(result => {
             res.sendStatus(201)
         })

@@ -7,8 +7,8 @@ const {
 } = require('../modules/authentication-middleware');
 
 // GET request to retrieve all created parties from the user
-router.post('/', (req, res) => {
-    console.log('Board Game to search:', req.body.boardGame);
+router.get('/', (req, res) => {
+    console.log('Board Game to search:', req.query.boardGame);
     
 
     const sqlText = `
@@ -16,7 +16,7 @@ router.post('/', (req, res) => {
         WHERE "board_game" = $1
         ORDER BY "board_game" ASC
         `;
-    const sqlParams = [req.body.boardGame];
+    const sqlParams = [req.query.boardGame];   
 
     pool.query(sqlText, sqlParams).then(result => {
         console.log('My Parties response', result.rows);

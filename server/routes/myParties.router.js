@@ -36,10 +36,10 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
 	        "parties_id",
 	        "board_game"
         FROM "parties"
-        JOIN "my_parties" 
-            ON "parties".id = "my_parties".parties_id
+        JOIN "users_parties" 
+            ON "parties".id = "users_parties".parties_id
         JOIN "user" 
-            ON "my_parties".users_id = "user".id
+            ON "users_parties".users_id = "user".id
         WHERE "parties".id = $1;
     `;
     const sqlParams = [req.params.id]   // $1

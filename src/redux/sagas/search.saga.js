@@ -5,13 +5,13 @@ export default function* searchSaga() {
     yield takeLatest('SEARCH_FOR_BOARD_GAME', searchBoardGame)
 }
 
-function* searchBoardGame() {
+function* searchBoardGame(action) {
     try {
-        const response = yield axios.get('/api/search_game');
+        const response = yield axios.post('/api/search_game', {boardGame: action.payload});
         console.log('Board Games from DB Search', response);
         
     } catch (error) {
-        console.error('Error posting New Party', error);
+        console.error('Error searching for board game', error);
 
     }
 }

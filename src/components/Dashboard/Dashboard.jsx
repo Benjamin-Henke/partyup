@@ -67,12 +67,19 @@ function Dashboard() {
     if (user.id === party.owner_id) {
       alert(`This is your party, you're already apart of it.`);
       return;
-    } else {
+    } else if (user.id === party) {
+      alert(`You can't join a party twice!`)
+    }
+    else {
       dispatch({
         type: "JOINING_A_PARTY",
         payload: joinInfo
       })
     }
+    dispatch({
+      type: "SHOW_CURRENT_PLAYERS",
+      payload: party.id
+    })
   }
 
   return (

@@ -7,7 +7,7 @@ const {
 } = require('../modules/authentication-middleware');
 
 
-// POST users inputs to the database
+// POST user into my_parties table to join a party
 router.post('/', rejectUnauthenticated, (req, res) => {
     console.log('User id', req.user.id);
     console.log('Party id', req.body.partyId);
@@ -15,7 +15,7 @@ router.post('/', rejectUnauthenticated, (req, res) => {
     let sqlText, sqlParams;
 
     // Double check to see if the logged in user is already apart of the game
-    // Not working :(
+    // I know the if statement is not valid since it isn't checking SQL
     if (req.user.id === 'users_id') {
         alert('You are already apart of this party.');
         return;

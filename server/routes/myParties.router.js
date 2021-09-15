@@ -36,7 +36,10 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 // DELETE request to delete specific party on My Parties page
 router.delete(`/:id`, rejectUnauthenticated, (req, res) => {
     const sqlParams = [req.params.id];
-    const sqlText = `DELETE from "parties" WHERE id = $1;`;
+    const sqlText = `
+        DELETE FROM "parties"
+        WHERE id = $1;
+        `;
     pool.query(sqlText, sqlParams).then(response => {
         console.log('DELETE successful', response);
         res.sendStatus(200);

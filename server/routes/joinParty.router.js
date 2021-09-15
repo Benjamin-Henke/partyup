@@ -11,17 +11,25 @@ const {
 router.post('/', rejectUnauthenticated, (req, res) => {
     console.log('User id', req.user.id);
     console.log('Party id', req.body.partyId);
-    
-    const sqlText = `
+
+    let sqlText, sqlParams;
+
+    // Double check to see if the logged in user is already apart of the game
+    if (req.user.id === `users_id`) {
+        alert('You are already apart of this party.');
+        return;
+    } else {
+        sqlText = `
         INSERT INTO "my_parties" ("users_id", "parties_id")
         VALUES ($1, $2);
         `;
 
-    const sqlParams = [
-       req.user.id,
-       req.body.partyId
-    ]
-
+        sqlParams = [
+            req.user.id,
+            req.body.partyId
+        ]
+    }
+    
     pool.query(sqlText, sqlParams).then(response => {
         console.log('Join Party POST working', response);
         res.sendStatus(201)

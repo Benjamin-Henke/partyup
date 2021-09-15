@@ -14,13 +14,14 @@ router.get('/', rejectUnauthenticated, (req, res) => {
         // Will i need to timestamp the database when a user creates a user?
     let sqlText = `
         SELECT
-            "board_game",
-            "number_of_players",
-            "experience",
-            "parties"."location",
-            "date_time",
-	        "username",
-            "parties"."id"
+           "parties"."id",
+           "board_game",
+           "number_of_players",
+           "parties"."location",
+           "date_time",
+           "user"."username",
+           "experience",
+           "owner_id"
         FROM "parties"
         JOIN "user"
 	        ON "parties".owner_id = "user".id

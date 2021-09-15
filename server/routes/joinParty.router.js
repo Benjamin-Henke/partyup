@@ -9,25 +9,26 @@ const {
 
 // POST users inputs to the database
 router.post('/', rejectUnauthenticated, (req, res) => {
-    console.log('User', req.user.id);
-    console.log('Passed Info', req.body);
+    console.log('User id', req.user.id);
+    console.log('Party id', req.body.partyId);
     
-    
-    
-    // const sqlText = `
-    //     `;
+    const sqlText = `
+        INSERT INTO "my_parties" ("users_id", "parties_id")
+        VALUES ($1, $2);
+        `;
 
-    // const sqlParams = [
-       
-    // ]
+    const sqlParams = [
+       req.user.id,
+       req.body.partyId
+    ]
 
-    // pool.query(sqlText, sqlParams).then(response => {
-    //     console.log('Join Party POST working', response);
-    //     res.sendStatus(201)
-    // }).catch(error => {
-    //     console.error('Join Party Post Error', error);
-    //     res.sendStatus(500);
-    // })
+    pool.query(sqlText, sqlParams).then(response => {
+        console.log('Join Party POST working', response);
+        res.sendStatus(201)
+    }).catch(error => {
+        console.error('Join Party Post Error', error);
+        res.sendStatus(500);
+    })
 });
 
 module.exports = router;

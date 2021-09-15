@@ -41,6 +41,7 @@ function Dashboard() {
   }
   function formatTime(time) {
     let d = new Date(time);
+    return d.toLocaleTimeString()
   }
 
   /* --TO DO-- */
@@ -55,10 +56,17 @@ function Dashboard() {
       partyId: party.id,
       players: party.number_of_players
     }
-    dispatch({
-      type: "JOINING_A_PARTY",
-      payload: joinInfo
-    })
+
+    // Double checks that the user asking to join isn't the owner
+    if (user.id === party.owner_id) {
+      alert(`This is your party, you're already apart of it.`);
+      return;
+    } else {
+      dispatch({
+        type: "JOINING_A_PARTY",
+        payload: joinInfo
+      })
+    }
   }
 
   return (
@@ -92,9 +100,9 @@ function Dashboard() {
               <h3>{info.board_game}</h3>
               <h6 class="card-subtitle mb-2 text-muted">{info.location}</h6>
               
-                <p class="card-text">Created by {info.username}</p>
+                <p class="card-text">Created by: {info.username}</p>
               
-              <p class="card-text">{info.experience}</p>
+              <p class="card-text">Experience: {info.experience}</p>
             </div>
           }
       </div>

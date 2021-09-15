@@ -51,7 +51,7 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
         console.error('Current Players response error', error);
         res.sendStatus(500);
     })
-} )
+});
 
 // DELETE request to delete specific party on My Parties page
 router.delete(`/:id`, rejectUnauthenticated, (req, res) => {
@@ -61,13 +61,14 @@ router.delete(`/:id`, rejectUnauthenticated, (req, res) => {
         WHERE id = $1;
         `;
     pool.query(sqlText, sqlParams).then(response => {
-        console.log('DELETE successful', response);
+        console.log('DELETE party successful', response);
         res.sendStatus(200);
     }).catch(error => {
-        console.error('DELETE Error', error);
+        console.error('DELETE party Error', error);
         res.sendStatus(500);
     })
-})
+});
+
 
 // PUT requests to edit a specific party
 router.put(`/:id`, (req, res) => {  
@@ -100,6 +101,6 @@ router.put(`/:id`, (req, res) => {
         console.error('PUT Error', error);
         res.sendStatus(500);
     })
-})
+});
 
 module.exports = router;

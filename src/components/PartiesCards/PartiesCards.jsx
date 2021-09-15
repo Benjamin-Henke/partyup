@@ -125,7 +125,11 @@ export default function PartiesCard({party, index}) {
     } // end showPlayers
 
     const deletePlayer = (player) => {
-        console.log('Deleting player', player);
+        console.log('Deleting player', player.users_id); // On joint table
+        dispatch({
+            type: "DELETE_THIS_PLAYER",
+            payload: player.users_id
+        })
     }
 
 

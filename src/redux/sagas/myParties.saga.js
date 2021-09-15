@@ -5,7 +5,8 @@ export default function* fetchMyParties() {
     yield takeLatest('DELETE_THIS_PARTY', deleteParty);
     yield takeLatest('EDIT_THIS_PARTY', editParty);
     yield takeLatest('FETCH_MY_PARTIES', fetchParties);
-    yield takeLatest('SHOW_CURRENT_PLAYERS', showPlayers)
+    yield takeLatest('SHOW_CURRENT_PLAYERS', showPlayers);
+    yield takeLatest('DELETE_THIS_PLAYER', deletePlayer)
 }
 
 function* deleteParty(action) {
@@ -15,6 +16,14 @@ function* deleteParty(action) {
         console.error('Error deleting party', error);
     }
 } // end deleteParty
+
+function* deletePlayer(action) {
+    try {
+        yield axios.delete(`/api/current_players/${action.payload}`)
+    } catch (error) {
+
+    }
+} // end deletePlayer
 
 function* editParty(action) {
     try {
@@ -48,4 +57,4 @@ function* showPlayers(action) {
     } catch (error) {
         console.error('Error getting current players', error);
     }
-}
+} // end showPlayers

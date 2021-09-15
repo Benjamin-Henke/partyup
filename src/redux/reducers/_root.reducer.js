@@ -5,6 +5,7 @@ import myPartiesReducer from './myParties.reducer';
 import editReducer from './editedParty.reducer';
 import upcomingEvents from './upcoming.reducer';
 import partyInfo from './partyInfo.reducer';
+import currentPlayersReducer from './currentPlayers.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -18,7 +19,8 @@ const rootReducer = combineReducers({
   user, // will have an id and username if someone is logged in
   myPartiesReducer, // contains the users parties they have created
   upcomingEvents,  // contains the next 4 events to happen based on current date
-  partyInfo // contains the party info to be displayed on the dashboard
+  partyInfo,  // contains the party info to be displayed on the dashboard
+  currentPlayersReducer,  // contains the current players for a specific game
 });
 
 export default rootReducer;

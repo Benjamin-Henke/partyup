@@ -40,6 +40,10 @@ function* showPlayers(action) {
     try {
         const response = yield axios.get(`/api/my_parties/${action.payload.id}`, action.payload);
         console.log('Current Players', response);
+        yield put({
+            type: 'SET_CURRENT_PLAYERS',
+            payload: response.data
+        })
         
     } catch (error) {
         console.error('Error getting current players', error);

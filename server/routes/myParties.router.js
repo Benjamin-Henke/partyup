@@ -28,7 +28,29 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 // GET request to get a specific games current players
 router.get('/:id', rejectUnauthenticated, (req, res) => {
     console.log('Party id', req.params.id);
+
+    const sqlText = `
+        SELECT
+	        "username",
+	        "users_id",
+	        "parties_id",
+	        "board_game"
+        FROM "parties"
+        JOIN "my_parties" 
+            ON "parties".id = "my_parties".parties_id
+        JOIN "user" 
+            ON "my_parties".users_id = "user".id
+        WHERE "parties".id = $1;
+    `;
+    const sqlParams = [req.params.id]   // $1
     
+    pool.query(sqlText, sqlParams).then(result => {
+        console.log('Current Players response', result);
+        res.send(result.rows);
+    }).catch(error => {
+        console.error('Current Players response error', error);
+        res.sendStatus(500);
+    })
 } )
 
 // DELETE request to delete specific party on My Parties page

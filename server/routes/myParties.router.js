@@ -8,21 +8,13 @@ const {
 
 // GET request to retrieve all created parties from the user
 router.get('/', rejectUnauthenticated, (req, res) => {
-    let sqlText, sqlParams;
-
-    if (req.user.authLevel === 'ADMIN') {
-        queryText = `SELECT * FROM "pet"`;
-        queryParams = [];
-    }
-    else {
-        // Regular users see only their pets
-        sqlText = `
+    const sqlText = `
         SELECT * FROM "parties"
         WHERE owner_id = $1
         ORDER BY "date_time" ASC
         `;
-        sqlParams = [req.user.id]
-    }
+
+    const sqlParams = [req.user.id]
 
     pool.query(sqlText, sqlParams).then(result => {
         console.log('My Parties response', result.rows);
@@ -32,6 +24,12 @@ router.get('/', rejectUnauthenticated, (req, res) => {
         res.sendStatus(500);
     })
 });
+
+// GET request to get a specific games current players
+router.get('/:id', rejectUnauthenticated, (req, res) => {
+    console.log('Party id', req.params.id);
+    
+} )
 
 // DELETE request to delete specific party on My Parties page
 router.delete(`/:id`, rejectUnauthenticated, (req, res) => {

@@ -13,7 +13,8 @@ const createPartyRouter = require('./routes/createParty.router');
 const myPartiesRouter = require('./routes/myParties.router');
 const upcomingRouter = require('./routes/upcoming.router');
 const joinPartyRouter = require('./routes/joinParty.router');
-const currentPlayersRouter = require('./routes/currentPlayers.router')
+const currentPlayersRouter = require('./routes/currentPlayers.router');
+const searchBoardGame = require('./routes/searchBoardGame.router');
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -32,7 +33,8 @@ app.use('/api/create_party', createPartyRouter);
 app.use('/api/my_parties', myPartiesRouter);
 app.use('/api/upcoming', upcomingRouter);
 app.use('/api/join_party', joinPartyRouter);
-app.use('/api/current_players', currentPlayersRouter)
+app.use('/api/current_players', currentPlayersRouter);
+app.use('/api/search_game', searchBoardGame);
 
 // Serve static files
 app.use(express.static('build'));

@@ -116,6 +116,7 @@ function Dashboard() {
             <div class="modal-body">
               <h6 class="card-subtitle mb-2 text-muted">{info.location}</h6>
               <p class="card-text">Created by: {info.username}</p>
+              <p class="card-text">Number of Players: {info.number_of_players}</p>
               <p class="card-text">Experience: {info.experience}</p>
 
               <div>

@@ -17,12 +17,12 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import AboutPage from '../AboutPage/AboutPage';
 import CreateParty from '../CreateParty/CreateParty';
 import Dashboard from '../Dashboard/Dashboard';
-import EditParty from '../EditParty/EditParty';
 import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import MyParties from '../MyParties/MyParties';
 import RegisterPage from '../RegisterPage/RegisterPage';
+import Map from '../Map/Map';
 
 import './App.css';
 
@@ -81,10 +81,11 @@ function App() {
           </ProtectedRoute>
 
           <ProtectedRoute
+            // logged in shows My Parties Page else shows LoginPage
             exact
-            path="/edit_party/:id"
+            path="/map"
           >
-            <EditParty />
+            <Map />
           </ProtectedRoute>
 
           <ProtectedRoute

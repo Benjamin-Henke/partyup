@@ -1,9 +1,5 @@
 .container {
-    margin-left: 10px;
-    margin-right: 10px;
-    width: 100vw;
-    display:inline-block;
-    justify-content: space-between;
+    display: flex;
 }
 
 .searchCards{
@@ -44,13 +40,9 @@
     padding: 10px;
     text-align: center;
     width: 25vw;
-    height: 43vw;
+    height: 45vw;
     background-color: white;
-    margin-left: 10px;
-    float: left
 } 
-
-
 
 #searchResults {
     border-style: solid;
@@ -58,9 +50,8 @@
     padding: 10px;
     margin-left: 10px;
     width: 55vw;
-    height: 43vw;
+    height: 45vw;
     background-color: white;
-    float: left
 }
 
 #welcomeMessage{

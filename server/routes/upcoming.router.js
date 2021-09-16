@@ -6,9 +6,6 @@ const {
     rejectUnauthenticated,
 } = require('../modules/authentication-middleware');
 
-/**
- * GET route template
- */
 router.get('/', rejectUnauthenticated, (req, res) => {
     // GET the 5 most recent posts
         // Will i need to timestamp the database when a user creates a user?

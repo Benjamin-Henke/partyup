@@ -10,6 +10,7 @@ const {
 router.get('/', rejectUnauthenticated, (req, res) => {
     console.log('Board Game to search:', req.query.boardGame);
     
+    // ADD PARAM SO PAST GAMES DON'T SHOW UP
     const sqlText = `
         SELECT 
             "parties"."id",

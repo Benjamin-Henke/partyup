@@ -136,18 +136,36 @@ function Dashboard() {
   
       <div id="searchResults">
         {findGame.length == 0 ?
-          <>
+          <div id="welcomeMessage">
+            <h1>Welcome to PartyUp</h1>
+            <h4>Starting searching for games to join and play!</h4>
             <img src="https://wallpaperaccess.com/full/273263.jpg" />
-            <h1>Welcome to PartyUp!</h1>
-            <p>Starting searching for parties to join to play!</p>
-          </>
+          </div>
         :
           <div>
             <div>
               {findGame.map((game, index) => (
-                <div key={index}>
-                  <h3>{game.board_game}</h3>
-                  <h4>{game.location}</h4>
+                <div key={index} className="searchCards">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="card">
+                        <div class="card-body">
+                          <h5 class="card-title">{game.board_game}</h5>
+                          <p class="card-text" className="searchCardsPTag">{game.location}</p>
+                          <p class="card-text" className="searchCardsPTag">Created by: {game.username}</p>
+                          <p class="card-text" className="searchCardsPTag">Number of Players: {game.number_of_players}</p>
+                          <p class="card-text" className="searchCardsPTag">Experience: {game.experience}</p>
+                          <div className="btnContainer">
+                            <button id="tooltip" data-title="Join" className="searchCardBtns"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-plus-fill" viewBox="0 0 16 16"> <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" /><path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z" /></svg>
+                            </button>
+                            <button className="searchCardBtns"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16"><path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" /><path fill-rule="evenodd" d="M5.216 14A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216z" /><path d="M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z" /></svg></button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
                 </div>
               ))}
             </div>

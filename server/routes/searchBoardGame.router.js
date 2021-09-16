@@ -12,6 +12,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
     
     const sqlText = `
         SELECT * FROM "parties"
+        JOIN "user" ON "parties"."owner_id" = "user"."id"
         WHERE "board_game" = $1
         ORDER BY "board_game" ASC
         `;

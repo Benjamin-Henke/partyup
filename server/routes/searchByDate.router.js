@@ -12,6 +12,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 
     const sqlText = `
         SELECT * FROM "parties"
+        JOIN "user" ON "parties"."owner_id" = "user"."id"
         WHERE date_time::date = $1;
     `;
     const sqlParams = [req.query.date];

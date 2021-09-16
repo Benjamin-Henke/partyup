@@ -5,6 +5,30 @@
     display:inline-block;
     justify-content: space-between;
 }
+
+.searchCards{
+    display: inline-block;
+}
+
+.searchCardsPTag{
+    margin: 5px;
+}
+
+.btnContainer{
+    bottom: 0;
+    background-color: #fe8c00;
+    text-align: center
+}
+
+.searchCardBtns{
+    color: white;
+}
+.searchCardBtns:hover{
+    color: #500041;
+    cursor: pointer;
+}
+
+
 #clearBtn{
     bottom: 0;
     width: 100%;
@@ -20,7 +44,7 @@
     padding: 10px;
     text-align: center;
     width: 25vw;
-    height: 42vw;
+    height: 43vw;
     background-color: white;
     margin-left: 10px;
     float: left
@@ -34,7 +58,12 @@
     padding: 10px;
     margin-left: 10px;
     width: 55vw;
-    height: 42vw;
+    height: 43vw;
     background-color: white;
     float: left
 }
+
+#welcomeMessage{
+    text-align: center;
+}
+

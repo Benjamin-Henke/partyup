@@ -106,7 +106,9 @@ function Nav() {
 
                   
                 {/* SEARCH BARS */}
-                <form onSubmit={searchForBoardGame} className="navLink">
+                <form 
+                  onSubmit={searchForBoardGame} 
+                  className="navLink">
                   <input
                     id="findBoardGame"
                     type="text"
@@ -114,7 +116,6 @@ function Nav() {
                     value={findBoardGame}
                     onChange={handleFindBoardGameChange}
                   />
-                  <button type="submit">Search</button>
                 </form>
               
                 <form onKeyDown={findBoardGameByDate} className="navLink">

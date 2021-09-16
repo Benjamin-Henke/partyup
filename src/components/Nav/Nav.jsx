@@ -101,9 +101,6 @@ function Nav() {
                     <br />
                     Account
                   </Link>
-
-                
-
                   
                 {/* SEARCH BARS */}
                 <form 

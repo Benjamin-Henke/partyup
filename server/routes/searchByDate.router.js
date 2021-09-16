@@ -11,9 +11,19 @@ router.get('/', rejectUnauthenticated, (req, res) => {
     console.log('Board Game to search:', req.query.date);
 
     const sqlText = `
-        SELECT * FROM "parties"
+        SELECT
+            "parties"."id",
+            "board_game",
+            "number_of_players",
+            "parties"."location",
+            "date_time",
+            "user"."username",
+            "experience",
+            "owner_id"
+        FROM "parties"
         JOIN "user" ON "parties"."owner_id" = "user"."id"
-        WHERE date_time::date = $1;
+        WHERE date_time::date = $1
+        ORDER BY "date_time" ASC ;
     `;
     const sqlParams = [req.query.date];
 

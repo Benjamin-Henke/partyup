@@ -1,0 +1,25 @@
+p {
+    font-size: 14px;
+}
+
+.upcomingCards {
+    text-align: left;
+}
+
+#headerBtn {
+    margin: 0;
+    padding: 0;
+    padding-left: 10px;
+    background: none;
+    color: #500041;
+    float: right;
+}
+
+#headerBtn:hover {
+    color: #fe8c00;
+    vertical-align: middle;
+}
+
+#nameHeader {
+    display:inline-flexbox;
+}

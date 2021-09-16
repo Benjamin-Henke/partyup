@@ -2,11 +2,11 @@ button {
     margin: 5px;
     padding: 5px;
     border: 0ch;
-    color: white;
-    background-color: #500041;
+    color: #500041;
+    background: none;
 }
 button:hover {
-  background-color: #fe8c00;
+  color: #fe8c00;
   text-decoration: none;
 }
 
@@ -19,3 +19,6 @@ button:hover {
 }
 
 
+.delModalBtn{
+  color: red
+}

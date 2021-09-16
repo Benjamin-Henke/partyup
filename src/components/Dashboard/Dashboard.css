@@ -1,28 +1,40 @@
+.container {
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 100vw;
+    display:inline-block;
+    justify-content: space-between;
+}
+#clearBtn{
+    bottom: 0;
+    width: 100%;
+    height: 3%;
+    text-align: center;
+    padding: 5px;
+}
+
+
 #recentPosts {
     border-style: solid;
     border-color: #fe8c00;
-    float: left;
     padding: 10px;
     text-align: center;
-    float: left;
-    width: 28%;
-    height: 42.5vw;
+    width: 25vw;
+    height: 42vw;
     background-color: white;
     margin-left: 10px;
+    float: left
 } 
 
-#searchBars {
-    margin-left: 15px;
-    width: 72%;
-}
+
 
 #searchResults {
     border-style: solid;
     border-color: #fe8c00;
-    float: right;
     padding: 10px;
     margin-left: 10px;
-    width: 50vw;
-    height: 40vw;
+    width: 55vw;
+    height: 42vw;
     background-color: white;
+    float: left
 }

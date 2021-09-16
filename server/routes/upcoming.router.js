@@ -2,14 +2,30 @@ const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 
+const {
+    rejectUnauthenticated,
+} = require('../modules/authentication-middleware');
+
 /**
  * GET route template
  */
-router.get('/', (req, res) => {
+router.get('/', rejectUnauthenticated, (req, res) => {
     // GET the 5 most recent posts
         // Will i need to timestamp the database when a user creates a user?
     let sqlText = `
-        SELECT * FROM "parties"
+        SELECT
+           "parties"."id",
+           "board_game",
+           "number_of_players",
+           "parties"."location",
+           "date_time",
+           "user"."username",
+           "experience",
+           "owner_id"
+        FROM "parties"
+        JOIN "user"
+	        ON "parties".owner_id = "user".id
+        WHERE "date_time" >= now()::timestamp
         ORDER BY "date_time" ASC
         LIMIT 4;
     `;

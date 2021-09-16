@@ -2,7 +2,7 @@ import { put, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
 
 export default function* recentPostsSaga() {
-    yield takeLatest('FETCH_UPCOMING_EVENTS', upcomingEvents)
+    yield takeLatest('FETCH_UPCOMING_EVENTS', upcomingEvents);
 }
 
 function* upcomingEvents() {

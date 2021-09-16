@@ -2,23 +2,19 @@ const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 
-// GET request to retrieve all created parties from the user
-router.get('/', (req, res) => {
-    let sqlText, sqlParams;
+const {
+    rejectUnauthenticated,
+} = require('../modules/authentication-middleware');
 
-    if (req.user.authLevel === 'ADMIN') {
-        queryText = `SELECT * FROM "pet"`;
-        queryParams = [];
-    }
-    else {
-        // Regular users see only their pets
-        sqlText = `
+// GET request to retrieve all created parties from the user
+router.get('/', rejectUnauthenticated, (req, res) => {
+    const sqlText = `
         SELECT * FROM "parties"
-        WHERE user_id = $1
+        WHERE owner_id = $1
         ORDER BY "date_time" ASC
         `;
-        sqlParams = [req.user.id]
-    }
+
+    const sqlParams = [req.user.id]
 
     pool.query(sqlText, sqlParams).then(result => {
         console.log('My Parties response', result.rows);
@@ -29,18 +25,50 @@ router.get('/', (req, res) => {
     })
 });
 
-// DELETE request to delete specific party on My Parties page
-router.delete(`/:id`, (req, res) => {
-    const sqlParams = [req.params.id];
-    const sqlText = `DELETE from "parties" WHERE id = $1;`;
-    pool.query(sqlText, sqlParams).then(response => {
-        console.log('DELETE successful', response);
-        res.sendStatus(200);
+// GET request to get a specific games current players
+router.get('/:id', rejectUnauthenticated, (req, res) => {
+    console.log('Party id', req.params.id);
+
+    const sqlText = `
+        SELECT
+	        "username",
+	        "users_id",
+	        "parties_id",
+	        "board_game"
+        FROM "parties"
+        JOIN "users_parties" 
+            ON "parties".id = "users_parties".parties_id
+        JOIN "user" 
+            ON "users_parties".users_id = "user".id
+        WHERE "parties".id = $1;
+    `;
+    const sqlParams = [req.params.id]   // $1
+    
+    pool.query(sqlText, sqlParams).then(result => {
+        console.log('Current Players response', result);
+        res.send(result.rows);
     }).catch(error => {
-        console.error('DELETE Error', error);
+        console.error('Current Players response error', error);
         res.sendStatus(500);
     })
-})
+});
+
+// DELETE request to delete specific party on My Parties page
+router.delete(`/:id`, rejectUnauthenticated, (req, res) => {
+    const sqlParams = [req.params.id];
+    const sqlText = `
+        DELETE FROM "parties"
+        WHERE id = $1;
+        `;
+    pool.query(sqlText, sqlParams).then(response => {
+        console.log('DELETE party successful', response);
+        res.sendStatus(200);
+    }).catch(error => {
+        console.error('DELETE party Error', error);
+        res.sendStatus(500);
+    })
+});
+
 
 // PUT requests to edit a specific party
 router.put(`/:id`, (req, res) => {  
@@ -73,6 +101,6 @@ router.put(`/:id`, (req, res) => {
         console.error('PUT Error', error);
         res.sendStatus(500);
     })
-})
+});
 
 module.exports = router;

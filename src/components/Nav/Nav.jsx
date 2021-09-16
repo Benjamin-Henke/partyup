@@ -1,11 +1,56 @@
-import React from 'react';
+import React, {useState} from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import LogOutButton from '../LogOutButton/LogOutButton';
 import './Nav.css';
-import { useSelector } from 'react-redux';
+
 
 function Nav() {
+  const dispatch = useDispatch();
   const user = useSelector((store) => store.user);
+
+  /* ----------------------------------
+    SEARCH BARS
+---------------------------------- */
+  // Local state variable for find board games search
+  const [findBoardGame, setFindBoardGame] = useState('');
+  const [date, setDate] = useState('');
+
+  // Handles search for a board game by name
+  const handleFindBoardGameChange = (e) => {
+    setFindBoardGame(e.target.value)
+  }
+
+  // Handles search for a board game by date
+  const handleFindBoardByDateChange = (e) => {
+    setDate(e.target.value)
+  }
+
+  // Runs search by name when user uses enter
+  const searchForBoardGame = (e) => {
+    e.preventDefault(e);
+    console.log('Searching for', findBoardGame);
+    dispatch({
+      type: "SEARCH_FOR_BOARD_GAME",
+      payload: findBoardGame
+    })
+
+    setFindBoardGame('');
+  }
+
+    // Runs search by date when user uses enter
+  const findBoardGameByDate = (e) => {
+    e.preventDefault(e);
+    console.log('Date searched', date);
+    dispatch({
+      type: "SEARCH_GAME_BY_DATE",
+      payload: date
+    })
+
+    setDate('');
+  }
+  /* ----------------------------------
+     END - SEARCH BARS
+ ---------------------------------- */
 
   return (
 
@@ -34,43 +79,52 @@ function Nav() {
               {user.id && (
                 <>
                   <Link className="navLink" to="/my_parties">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="25" fill="currentColor" class="bi bi-dice-6-fill" viewBox="0 0 16 16">
-                      <path d="M3 0a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V3a3 3 0 0 0-3-3H3zm1 5.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm8 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm1.5 6.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zM12 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zM5.5 12a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zM4 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
-                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="25" fill="currentColor" class="bi bi-layers-half" viewBox="0 0 16 16"><path d="M8.235 1.559a.5.5 0 0 0-.47 0l-7.5 4a.5.5 0 0 0 0 .882L3.188 8 .264 9.559a.5.5 0 0 0 0 .882l7.5 4a.5.5 0 0 0 .47 0l7.5-4a.5.5 0 0 0 0-.882L12.813 8l2.922-1.559a.5.5 0 0 0 0-.882l-7.5-4zM8 9.433 1.562 6 8 2.567 14.438 6 8 9.433z" /></svg>
                     <br />
-                    My Parties
-                    
+                    Parties
                   </Link>
                   <Link className="navLink" to="/create_party">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="25" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
-                      <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
-                      <path fill-rule="evenodd" d="M5.216 14A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216z" />
-                      <path d="M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z" />
-                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="25" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" /></svg>
                     <br />
                     Create
                     
                   </Link>
                   <Link className="navLink" to="/account_info">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="25" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-                      <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
-                      <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
-                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="25" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16"><path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" /><path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" /></svg>
                     <br />
                     Account
                   </Link>
 
-                  <LogOutButton className="navLink"  />
+                  
+                {/* SEARCH BARS */}
+                <form onKeyDown={searchForBoardGame} className="navLink">
+                  <input
+                    id="findBoardGame"
+                    type="text"
+                    placeholder="Find games by name"
+                    value={findBoardGame}
+                    onChange={handleFindBoardGameChange}
+                  />
+                </form>
+              
+                <form onKeyDown={findBoardGameByDate} className="navLink">
+                  <input 
+                    id="findBoardGame"
+                    type="date" 
+                    value={date}
+                    onChange={handleFindBoardByDateChange}
+                  />
+                </form>
+
+              <div id="searchBars" className="navLink">
+
+                <input type="text" placeholder="Find games in my area" />
+                
+              </div>
+
                 </>
               )}
 
-              {/* <Link className="navLink" to="/about">
-                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="25" fill="currentColor" class="bi bi-info-square-fill" viewBox="0 0 16 16">
-                  <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm8.93 4.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
-                </svg>
-                <br />
-                About
-              </Link> */}
           </div>
         </div>  
     </div>

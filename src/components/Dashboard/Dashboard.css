@@ -24,6 +24,9 @@
     cursor: pointer;
 }
 
+.recentPostsBtn{
+    text-align: right;
+}
 
 #clearBtn{
     bottom: 0;

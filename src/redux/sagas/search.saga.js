@@ -23,7 +23,12 @@ function* searchBoardGame(action) {
 
 function* searchGameByDate(action) {
     try{
-        const response = yield axios.get
+        const response = yield axios.get('/api/search_date', { params: {date: action.payload}})
+        console.log('Board Games by date from DB', response.date);
+        yield put({
+            type: 'SET_SEARCHED_BOARD_GAME',
+            payload: response.data
+        })
     } catch (error) {
         console.error('Error searching for game by date', error);
     }

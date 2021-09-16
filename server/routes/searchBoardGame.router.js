@@ -18,10 +18,10 @@ router.get('/', rejectUnauthenticated, (req, res) => {
     const sqlParams = [req.query.boardGame];   
 
     pool.query(sqlText, sqlParams).then(result => {
-        console.log('My Parties response', result.rows);
+        console.log('Search by game name response', result.rows);
         res.send(result.rows);
     }).catch(error => {
-        console.error('My Parties response error', error);
+        console.error('Search by game name response error', error);
         res.sendStatus(500);
     })
 });

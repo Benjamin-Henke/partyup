@@ -136,8 +136,9 @@ function Dashboard() {
       <div id="searchResults">
         {findGame.length == 0 ?
           <>
-          <h1>Need default component</h1>
-          <h2>Welcome!</h2>
+            <img src="https://wallpaperaccess.com/full/273263.jpg" />
+            <h1>Welcome to PartyUp!</h1>
+            <p>Starting searching for parties to join to play!</p>
           </>
         :
           <div>
@@ -150,7 +151,11 @@ function Dashboard() {
               ))}
             </div>
               
-            <button id="clearBtn">Clear Search</button>
+            <button 
+              id="clearBtn"
+              onClick={() => { dispatch({ type: "SEARCH_FOR_BOARD_GAME", payload: ''})}}
+              >
+              Clear Search</button>
 
           </div>
         }

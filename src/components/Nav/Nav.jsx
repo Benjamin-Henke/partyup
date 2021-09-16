@@ -13,14 +13,21 @@ function Nav() {
 ---------------------------------- */
   // Local state variable for find board games search
   const [findBoardGame, setFindBoardGame] = useState('');
+  const [date, setDate] = useState('');
 
   // Handles search for a board game by name
   const handleFindBoardGameChange = (e) => {
     setFindBoardGame(e.target.value)
   }
 
-  // Runs on search button click
-  function searchForBoardGame() {
+  // Handles search for a board game by date
+  const handleFindBoardByDateChange = (e) => {
+    setDate(e.target.value)
+  }
+
+  // Runs search by name when user uses enter
+  const searchForBoardGame = (e) => {
+    e.preventDefault(e);
     console.log('Searching for', findBoardGame);
     dispatch({
       type: "SEARCH_FOR_BOARD_GAME",
@@ -28,6 +35,18 @@ function Nav() {
     })
 
     setFindBoardGame('');
+  }
+
+    // Runs search by date when user uses enter
+  const findBoardGameByDate = (e) => {
+    e.preventDefault(e);
+    console.log('Date searched', date);
+    dispatch({
+      type: "SEARCH_GAME_BY_DATE",
+      payload: date
+    })
+
+    setDate('');
   }
   /* ----------------------------------
      END - SEARCH BARS
@@ -77,27 +96,30 @@ function Nav() {
                   </Link>
 
                   
-
-                <div id="findBoardGameInput" className="navLink">
+                {/* SEARCH BARS */}
+                <form onKeyDown={searchForBoardGame} className="navLink">
                   <input
                     id="findBoardGame"
                     type="text"
-                    placeholder="Find board game"
+                    placeholder="Find games by name"
                     value={findBoardGame}
                     onChange={handleFindBoardGameChange}
                   />
-                  <button
-                    className="searchBtn"
-                    onClick={searchForBoardGame}
-                  >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-zoom-in" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z" /><path d="M10.344 11.742c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1 6.538 6.538 0 0 1-1.398 1.4z" /><path fill-rule="evenodd" d="M6.5 3a.5.5 0 0 1 .5.5V6h2.5a.5.5 0 0 1 0 1H7v2.5a.5.5 0 0 1-1 0V7H3.5a.5.5 0 0 1 0-1H6V3.5a.5.5 0 0 1 .5-.5z" /></svg>
-                  </button>
-                </div>
+                </form>
+              
+                <form onKeyDown={findBoardGameByDate} className="navLink">
+                  <input 
+                    id="findBoardGame"
+                    type="date" 
+                    value={date}
+                    onChange={handleFindBoardByDateChange}
+                  />
+                </form>
 
               <div id="searchBars" className="navLink">
 
                 <input type="text" placeholder="Find games in my area" />
-                <input type="text" placeholder="Find games by date" />
+                
               </div>
 
                 </>

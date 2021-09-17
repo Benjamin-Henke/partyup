@@ -56,11 +56,11 @@ function Nav() {
 
     
     <div className="navMainBody">
-      <div classNam="appName">
-        <h2 id="partyUp">PartyUp</h2>
-      </div>
       <div className="nav">
           {/* If no user is logged in, show these links */}
+          <div classNam="appName">
+            <h2 id="partyUp">PARTY <br /> UP</h2>
+          </div>
           {user.id === null &&
             // If there's no user, show login/registration links
             <Link className="navLink" to="/login">

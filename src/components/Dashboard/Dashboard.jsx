@@ -3,6 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import './Dashboard.css';
 import './UpcomingEvents.css'
 
+import CreateParty from '../CreateParty/CreateParty';
+import WelcomePage from '../WelcomePage/WelcomePage';
+
 
 function Dashboard() {
   // Set hook variables
@@ -14,6 +17,9 @@ function Dashboard() {
   const info = useSelector(store => store.partyInfo);
   const players = useSelector(store => store.currentPlayersReducer);
   const findGame = useSelector(store => store.searchBoardGameReducer);
+
+  // Local state used for rendering main page
+  const [searchIsActive, setSearchIsActive] = useState(false);
 
   // Fetch on page load. Calls api/my_parties to get data
   useEffect(() => {
@@ -133,14 +139,27 @@ function Dashboard() {
         </div>
       </div>
 
+
       
   
       <div id="searchResults">
+        {/* <WelcomePage /> */}
         {findGame.length == 0 ?
-          <div id="welcomeMessage">
-            <h1>Welcome to PartyUp</h1>
-            <h4>Starting searching for games to join and play!</h4>
-            <img src="https://wallpaperaccess.com/full/273263.jpg" />
+          // <div id="welcomeMessage">
+          //   <h1>Welcome to PartyUp</h1>
+          //   <h4>Starting searching for games to join and play!</h4>
+          //   <img src="https://wallpaperaccess.com/full/273263.jpg" />
+          // </div>
+          <div>
+            <h3>Oops! No games found! How about you make one?</h3>
+              <div>
+                <CreateParty />
+              <button
+                id="clearBtn"
+                onClick={() => { dispatch({ type: "SEARCH_FOR_BOARD_GAME", payload: '' }) }}
+              >
+                Clear</button>
+              </div>
           </div>
         :
           <div>
@@ -176,6 +195,21 @@ function Dashboard() {
 
           </div>
         }
+
+        <div>
+          {(() => {
+            if (searchIsActive === true) {
+              findGame.length > 0 ?
+                <div>Search Results</div>
+                :
+                <div>No Search Results</div>
+
+            } else (findGame.length > 0) {
+                <WelcomePage />
+            }
+          })()}
+
+        </div>
 
         
       </div>

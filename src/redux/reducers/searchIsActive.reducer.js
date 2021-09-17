@@ -2,10 +2,10 @@
 // Will be appended on Dashboard Page
 const isActive = (state = false, action) => {
     switch (action.type) {
-        case 'SET_SEARCH_IS_ACTIVE':
-            return state = true;
-        case 'SET_SEARCH_IS_INACTIVE':
-            return state = false;
+        case 'SET_SEARCH_AS_ACTIVE':
+            return true;
+        case 'SET_SEARCH_AS_INACTIVE':
+            return false;
         default:
             return state;
     }

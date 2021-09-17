@@ -24,7 +24,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 	        ON "parties".owner_id = "user".id
         WHERE "date_time" >= now()::timestamp
         ORDER BY "date_time" ASC
-        LIMIT 4;
+        LIMIT 10;
     `;
     pool.query(sqlText).then(result => {
         console.log('Recent Posts Results', result.rows);

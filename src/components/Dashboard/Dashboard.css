@@ -1,5 +1,13 @@
+.upcomingBtns{
+    float: right;
+    border: none;
+    background-color: none;
+    color: #080137;
+}
+
 .container {
     display: flex;
+    margin-left: 50px;
 }
 
 .searchCards{
@@ -20,12 +28,13 @@
     color: white;
 }
 .searchCardBtns:hover{
-    color: #500041;
+    color: #080137;
     cursor: pointer;
 }
 
-.recentPostsBtn{
-    text-align: right;
+.upcomingCards{
+    background-color: white;
+    margin: 10px;
 }
 
 #clearBtn{
@@ -36,25 +45,42 @@
     padding: 5px;
 }
 
+#cardContainers{
+    width: 100%;
+    height: 90%;
+}
 
 #recentPosts {
     border-style: solid;
-    border-color: #080137;
-    padding: 10px;
-    text-align: center;
+    border: 8px;
+    border-style: outset;
+    border-color: #fe8c00;
+
     width: 25vw;
-    height: 45vw;
-    background-color: white;
+    height: 43vw;
+    background-color: rgba(255, 255, 255, 0.598);
 } 
 
 #searchResults {
     border-style: solid;
-    border-color: #080137;
+    border: 8px;
+    border-style: outset;
+    border-color: #fe8c00;
     padding: 10px;
     margin-left: 10px;
     width: 55vw;
-    height: 45vw;
-    background-color: white;
+    height: 43vw;
+    background-color: rgba(255, 255, 255, 0.598);
+}
+
+#upcomingEvents{
+    width: 100%;
+    line-height: 55px;
+    height: 55px;
+    text-align: center;
+    vertical-align: 10px;
+    background-color: black;
+    color:white;
 }
 
 #welcomeMessage{

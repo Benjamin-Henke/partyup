@@ -13,8 +13,8 @@ function InfoPage() {
   const user = useSelector((store) => store.user);
   return (
     <div className="infoMainContainer">
-      <h3>Username: {user.username}</h3>
-      <h3>Email: {user.email}</h3>
+      <h3 className="infoPageH3">Username: {user.username}</h3>
+      <h3 className="infoPageH3">Email: {user.email}</h3>
       <LogOutButton className="logoutBtn" />
     </div>
   );

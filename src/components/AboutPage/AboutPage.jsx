@@ -10,7 +10,7 @@ function AboutPage() {
   return (
     <>
       <div class="mainContainer">
-        <h3>Technology Used</h3>
+        <h3 className="aboutPageH3">Technology Used</h3>
         <br />
         <pre>React    React-Redux   Redux-Saga    Node    Posgresql   Bootstrap</pre>
         

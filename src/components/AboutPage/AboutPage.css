@@ -1,8 +1,9 @@
-h3, pre{
+.aboutPageH3{
     color: white;
 }
 
 pre{
+     color: white;
     font-size: 20px;
 }
 

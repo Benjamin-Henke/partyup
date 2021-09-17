@@ -101,8 +101,8 @@ function Dashboard() {
 
     <div class="row">
 
-
-      <div class="col-4">col-4
+     <div class="col-4">
+       <br />
         <div id="recentPosts">
           <h3 id="upcomingEvents">UPCOMING EVENTS</h3>
           <div id="cardContainers" class="overflow-auto">
@@ -121,9 +121,35 @@ function Dashboard() {
           </div>
         </div>
       </div>
-      
 
-      <div class="col-8">col-8
+      <div class="modal fade" id="gameInfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">{info.board_game}</h5>
+            </div>
+            <div class="modal-body">
+              <h6 class="card-subtitle mb-2 text-muted">{info.location}</h6>
+              <p class="card-text">Created by: {info.username}</p>
+              <p class="card-text">Number of Players: {info.number_of_players}</p>
+              <p class="card-text">Experience: {info.experience}</p>
+
+              <div>
+                Current Players:
+                {players.map((player, index) => (
+                  <div key={index}>
+                    <li>{player.username}</li>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-8">
+        <br />
         <div id="searchResults">
           {
             searchIsActive ?

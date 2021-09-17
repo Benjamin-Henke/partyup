@@ -11,15 +11,18 @@ export default function map() {
         longitude: -94.677658,
         width: '75vw',
         height: '75vh',
-        zoom: 10,
-    })
+        zoom: 11,
+    });
 
+    const [selectedEvent, setSelectedEvent] = useState(null);
+
+    
     return (
         <>
             <ReactMapGL
                 {...viewport}
                 mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_ACCESS_TOKEN}
-                
+                mapStyle="mapbox://styles/benjaminhenke/ckt9yyhxs1qvn17mka96up9zc"
                 onViewportChange={viewport => { setViewport(viewport) }}
             ></ReactMapGL>
         </>

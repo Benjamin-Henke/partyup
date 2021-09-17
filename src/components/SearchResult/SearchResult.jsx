@@ -7,6 +7,8 @@ import CreateParty from '../CreateParty/CreateParty';
 
 export default function SearchResult() {
     const dispatch = useDispatch();
+    const info = useSelector(store => store.partyInfo);
+    const players = useSelector(store => store.currentPlayersReducer);
     const findGame = useSelector(store => store.searchBoardGameReducer);
 
 
@@ -17,6 +19,54 @@ export default function SearchResult() {
     function formatTime(time) {
         let d = new Date(time);
         return d.toLocaleTimeString()
+    }
+
+    // Handles the info button
+    // Sends data to reducer to be used in the body section of the app
+    // Dispatches to upcoming.saga
+    const displayInfo = (party) => {
+        console.log('Game Info', party);
+        dispatch({
+            type: "SET_PARTY_INFO",
+            payload: party
+        })
+        dispatch({
+            type: "SHOW_CURRENT_PLAYERS",
+            payload: party.id
+        })
+    }
+
+    // Handles the join party button
+    // Send email to the user who created the party that the user tht clicked wants to join TO DO
+    // Add user to the party info
+    const joinParty = (party) => {
+        console.log('Joining', party);
+        console.log('party id', party.id);
+        console.log('party owner id', party.owner_id);
+        console.log('number of players', party.number_of_players);
+        let joinInfo = {
+            partyId: party.id,
+            partyOwnerId: party.owner_id,
+            players: party.number_of_players
+        }
+
+        // Double checks that the user asking to join isn't the owner
+        if (user.id === party.owner_id) {
+            alert(`This is your party, you're already apart of it.`);
+            return;
+        } else if (user.id === party) {
+            alert(`You can't join a party twice!`)
+        }
+        else {
+            dispatch({
+                type: "JOINING_A_PARTY",
+                payload: joinInfo
+            })
+        }
+        dispatch({
+            type: "SHOW_CURRENT_PLAYERS",
+            payload: party.id
+        })
     }
 
 
@@ -66,6 +116,31 @@ export default function SearchResult() {
                             onClick={() => { dispatch({ type: "SET_SEARCH_AS_INACTIVE", payload: '' }) }}
                         >
                             Clear</button>
+
+                        <div class="modal fade" id="gameInfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">{info.board_game}</h5>
+                                    </div>
+                                    <div class="modal-body">
+                                        <h6 class="card-subtitle mb-2 text-muted">{info.location}</h6>
+                                        <p class="card-text">Created by: {info.username}</p>
+                                        <p class="card-text">Number of Players: {info.number_of_players}</p>
+                                        <p class="card-text">Experience: {info.experience}</p>
+
+                                        <div>
+                                            Current Players:
+                                            {players.map((player, index) => (
+                                                <div key={index}>
+                                                    <li>{player.username}</li>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
                     </div>
                 }

@@ -6,7 +6,6 @@ import './Nav.css';
 
 function Nav() {
   const dispatch = useDispatch();
-  const user = useSelector((store) => store.user);
 
   /* ----------------------------------
     SEARCH BARS
@@ -47,6 +46,9 @@ function Nav() {
     dispatch({
       type: "SEARCH_GAME_BY_DATE",
       payload: date
+    })
+    dispatch({
+      type: "SET_SEARCH_AS_ACTIVE"
     })
 
     setDate('');  // Possibly cause issues

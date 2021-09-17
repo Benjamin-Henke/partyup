@@ -6,10 +6,23 @@ import CreateParty from '../CreateParty/CreateParty';
 
 
 export default function SearchResult() {
+    const dispatch = useDispatch();
     const findGame = useSelector(store => store.searchBoardGameReducer);
+
+
+    function formatDate(date) {
+        let d = new Date(date);
+        return d.toLocaleDateString();
+    }
+    function formatTime(time) {
+        let d = new Date(time);
+        return d.toLocaleTimeString()
+    }
+
+
     return(
         <>
-            <div id="searchResults">
+            <div>
                 {findGame.length == 0 ?
                     <div>
                         <h3>Oops! No games found! How about you make one?</h3>
@@ -17,7 +30,7 @@ export default function SearchResult() {
                             <CreateParty />
                             <button
                                 id="clearBtn"
-                                onClick={() => { dispatch({ type: "SEARCH_FOR_BOARD_GAME", payload: '' }) }}
+                                onClick={() => { dispatch({ type: "SET_SEARCH_AS_INACTIVE", payload: '' }) }}
                             >
                                 Clear</button>
                         </div>
@@ -50,9 +63,9 @@ export default function SearchResult() {
 
                         <button
                             id="clearBtn"
-                            onClick={() => { dispatch({ type: "SEARCH_FOR_BOARD_GAME", payload: '' }) }}
+                            onClick={() => { dispatch({ type: "SET_SEARCH_AS_INACTIVE", payload: '' }) }}
                         >
-                            Clear Search</button>
+                            Clear</button>
 
                     </div>
                 }

@@ -44,7 +44,8 @@
   color: #f2f2f2;
  
   text-align: center;
-  padding: 15px 10px;
+  justify-content: center;
+  padding: 10px 8px;
   text-decoration: none;
   font-size: 15px;
 }

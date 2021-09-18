@@ -7,11 +7,22 @@ export default function* newPartySaga() {
 
 function* createParty(action) {
     try {
-        console.log('board game to search', action.payload.boardGame);
+        let combineData;
+        console.log('board game to retrieve from Board Game Atlas API', action.payload.boardGame);
         const response = yield axios.get('/api/board_game_atlas', { params: { boardGame: action.payload.boardGame }});
-        console.log('response', response.data);
+        console.log('action.payload', action.payload);
+        console.log('Results from Board Game Atlas API:', response.data);
+        console.log('Description', response.data[0].description);
+        console.log('Images', response.data[0].images.medium);
+        console.log('action.payload', action.payload);
+        yield combineData = {
+            userInputs: action.payload,
+            description: response.data[0].description,
+            image: response.data[0].images.medium
+        }
         
-        // yield axios.post('/api/create_party', action.payload);
+        yield axios.post('/api/create_party', combineData);
+
     } catch (error) {
         console.error('Error posting New Party', error);    
     }

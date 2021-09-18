@@ -15,14 +15,15 @@ router.get('/', rejectUnauthenticated, (req, res)=> {
     
     axios({
         method: 'GET',
-        url: `https://api.boardgameatlas.com/api/search?name=${req.query.boardGame}&client_id=${process.env.REACT_APP_BOARD_GAME_TOKEN}`,
-        // params: {
-        //     name: req.query.boardGame,
-        //     client_id: process.env.REACT_APP_BOARD_GAME_TOKEN,
-        // }
+        url: `https://api.boardgameatlas.com/api/search`,
+        params: {
+            name: req.query.boardGame,
+            client_id: process.env.REACT_APP_BOARD_GAME_TOKEN,
+            limit: 1,
+        }
     }).then(response => {
-        console.log('axios response', response.data);
-        res.send(response.data.data)
+        console.log('axios response', response.data.games);
+        res.send(response.data.games)
     }).catch(error => {
         console.log('board game atlas error', error,response.data);
         res.sendStatus(500)

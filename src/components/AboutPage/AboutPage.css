@@ -1,0 +1,19 @@
+.aboutPageH3{
+    color: white;
+}
+
+pre{
+     color: white;
+    font-size: 20px;
+}
+
+.mainContainer{
+    margin-top: 20px;
+    text-align: center;
+}
+
+.footer{
+    text-align: center;
+    margin-top: 45%;
+    color: white;
+}

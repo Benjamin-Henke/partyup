@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import './MyParties.css';
 
 import PartiesCard from "../PartiesCards/PartiesCards";
-import EditParty from "../EditParty/EditParty";
+
 
 
 export default function MyParties() {

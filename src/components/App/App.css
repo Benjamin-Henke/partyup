@@ -3,11 +3,9 @@ body,
 #react-root {
   height: 100%;
   width: 100%;
-  background-color: #500041;
-  position:relative;
-  margin:0;
-  padding:0;
-  overflow:auto;
+  
+  background-image: url(https://wallpaperaccess.com/full/273263.jpg);
+  background-size: 100vw 100vh;
 }
 
 body {
@@ -36,6 +34,8 @@ Button
 .btn {
   display: inline-block;
   padding: 10px 20px;
+  border-width: 1px 1px 3px;
+  border-radius: 4px;
   background-color: #500041;
   color: #f8f8f8;
   font-size: 1.1rem;
@@ -71,7 +71,7 @@ Button
   border-radius: 0;
   background: none;
   font: inherit;
-  color: #444;
+  color: #fe8c00;
 }
 
 .btn_asLink:hover {

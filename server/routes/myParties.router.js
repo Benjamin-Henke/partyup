@@ -71,7 +71,7 @@ router.delete(`/:id`, rejectUnauthenticated, (req, res) => {
 
 
 // PUT requests to edit a specific party
-router.put(`/:id`, (req, res) => {  
+router.put(`/:id`, rejectUnauthenticated, (req, res) => {
     console.log('ID', req.params.id);
     console.log('Party Info', req.body.board_game);
     

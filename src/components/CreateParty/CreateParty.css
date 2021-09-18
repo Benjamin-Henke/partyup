@@ -1,11 +1,11 @@
 .createPartyContainer {
-    float: left;
     text-align: center;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.571);
     border-style:outset;
     border-color: #fe8c00;
     border-width: 8px;
     border-radius: 10px;
+    margin-top: 10px;
     margin-right: 25%;
     margin-left: 25%;
     width: 50%;

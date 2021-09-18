@@ -7,7 +7,10 @@ export default function* newPartySaga() {
 
 function* createParty(action) {
     try {
-        yield axios.post('/api/create_party', action.payload);
+        console.log('payload', action.payload);
+        
+        // const response = yield axios.get('/api/board_game_atlas', { params: action.boardGame })
+        // yield axios.post('/api/create_party', action.payload);
     } catch (error) {
         console.error('Error posting New Party', error);    
     }

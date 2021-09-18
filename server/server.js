@@ -16,6 +16,7 @@ const joinPartyRouter = require('./routes/joinParty.router');
 const currentPlayersRouter = require('./routes/currentPlayers.router');
 const searchBoardGame = require('./routes/searchBoardGame.router');
 const searchGameByDate = require('./routes/searchByDate.router');
+const boardGameAtlasRouter = require('./routes/fetchBoardGameAtlasApi.router');
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -36,7 +37,8 @@ app.use('/api/upcoming', upcomingRouter);
 app.use('/api/join_party', joinPartyRouter);
 app.use('/api/current_players', currentPlayersRouter);
 app.use('/api/search_game', searchBoardGame);
-app.use('/api/search_date', searchGameByDate)
+app.use('/api/search_date', searchGameByDate);
+app.use('/api/board_game_atlas', boardGameAtlasRouter)
 
 // Serve static files
 app.use(express.static('build'));

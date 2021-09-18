@@ -116,14 +116,18 @@ input {
 }
 
 
-
+/* -- Used for all images that are pulled from Board Game Atlas API  --  */
 .apiImages{
-  /* Size for card */
+  /* Size for card image based on Bootstrap*/
   width: 286;
   height: 180;
+
+  /* Centers image */
   display: block;
   margin-left: auto;
   margin-right: auto;
+
+  padding: 10px;
 }
 
 

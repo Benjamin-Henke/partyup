@@ -20,10 +20,12 @@ router.get('/', rejectUnauthenticated, (req, res) => {
             "date_time",
             "user"."username",
             "experience",
+            "image",
+            "description",
             "owner_id"
         FROM "parties"
         JOIN "user" ON "parties"."owner_id" = "user"."id"
-        WHERE "board_game" = $1
+        WHERE "board_game" = $1 AND "date_time" >= now()::timestamp
         ORDER BY "date_time" ASC
         `;
     const sqlParams = [req.query.boardGame];   

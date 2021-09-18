@@ -1,42 +1,5 @@
 
 
-.upcomingBtns{
-    border: none;
-    background-color: none;
-    color: #080137;
-}
-
-.container {
-    display: flex;
-    margin-left: 50px;
-}
-
-.searchCards{
-    display: inline-block;
-}
-
-.searchCardsPTag{
-    margin: 5px;
-}
-
-.btnContainer{
-    bottom: 0;
-    background-color: #fe8c00;
-    text-align: center
-}
-
-.searchCardBtns{
-    color: white;
-}
-.searchCardBtns:hover{
-    color: #080137;
-    cursor: pointer;
-}
-
-.upcomingCards{
-    background-color: white;
-    margin: 10px;
-}
 
 #clearBtn{
     bottom: 0;
@@ -46,10 +9,6 @@
     padding: 5px;
 }
 
-#cardContainers{
-    width: 100%;
-    height: 90%;
-}
 
 #recentPosts {
     border-style: solid;
@@ -57,7 +16,7 @@
     border-style: outset;
     border-color: #fe8c00;
     margin-left: 20px;
-    width: 80%;
+    width: 60%;
     height: 42%;
     background-color: rgba(255, 255, 255, 0.598);
 } 
@@ -68,7 +27,7 @@
     border-style: outset;
     border-color: #fe8c00;
     padding: 10px;
-    width: 97.5%;
+    width: 92%;
     height: 42%;
     background-color: rgba(255, 255, 255, 0.598);
 }
@@ -76,7 +35,7 @@
 #upcomingEvents{
     width: 100%;
     line-height: 55px;
-    height: 55px;
+    height: 60px;
     text-align: center;
     vertical-align: 10px;
     background-color: black;
@@ -86,4 +45,6 @@
 #welcomeMessage{
     text-align: center;
 }
+
+
 

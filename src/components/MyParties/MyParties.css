@@ -5,10 +5,7 @@ button {
     color: white;
     background: none;
 }
-button:hover {
-  color: #fe8c00;
-  text-decoration: none;
-}
+
 
 p {
   font-size: 18px;
@@ -42,6 +39,10 @@ p {
   bottom: 0;
   position: absolute;
   background-color: #080137;
+}
+
+.partyCardBtn:hover {
+  color: #fe8c00;
 }
 
 .cardEditInputs{

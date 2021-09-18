@@ -22,3 +22,21 @@ p {
 #nameHeader {
     display:inline-flexbox;
 }
+
+/* ---------------------------------- 
+   CARD STYLING UPCOMING EVENTS
+-----------------------------------*/
+#cardContainers{
+    width: 100%;
+    height: 90%;
+}
+.upcomingCards{
+    background-color: white;
+    margin: 10px;
+}
+
+.upcomingBtns{
+    border: none;
+    background-color: none;
+    color: #080137;
+}

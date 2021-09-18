@@ -5,6 +5,34 @@
 -- Otherwise you will have errors!
 -- DUMMY DATA ---
 -----------------
+CREATE TABLE "user" (
+    "id" SERIAL PRIMARY KEY,
+    "username" VARCHAR (80) UNIQUE NOT NULL,
+    "password" VARCHAR (1000) NOT NULL,
+    "email" VARCHAR (255) UNIQUE NOT NULL
+);
+
+CREATE TABLE "parties" (
+    "id" SERIAL PRIMARY KEY,
+    "board_game" VARCHAR (255),
+    "number_of_players" INTEGER,
+    "experience" VARCHAR (20),
+    "date_time" TIMESTAMP WITHOUT TIME ZONE,
+    "location" VARCHAR (255),
+    "image" VARCHAR (1000),
+    "description" VARCHAR (5000),
+    "owner_id" INT REFERENCES "user"(id)
+);
+
+CREATE TABLE "users_parties" (
+    "id" SERIAL PRIMARY KEY,
+    "users_id" INT REFERENCES "user"(id),
+    "parties_id" INT REFERENCES "parties"(id) ON DELETE CASCADE
+);
+
+ 
+-- DUMMY DATA ---
+-----------------
 INSERT INTO "user" ("username", "password", "email")
 VALUES 
 	('tommyboy', 'tommyboy123', 'tboy'),
@@ -14,14 +42,14 @@ VALUES
 	('tswift', 'tswift123', 'tswift'),
 	('LeslieKnope', 'lknope123', 'lknope'),
 	('the_scarlet_witch', 'witch123', 'switch'),
-	('miahamm', 'soccer123', 'mhamm');
+	('PamBeesly', 'pbeesly123', 'pbeesly');
 
 INSERT INTO "parties" ("board_game", "number_of_players", "experience", "location", "date_time", "owner_id")
 VALUES 
 	-- TOMMYBOY
-	('Takaido', 4, 'Novice', '9156 Metcalf Ave, Overland Park, KS 66212', '2021-09-24 20:00', '1'),
-	('Takaido', 4, 'Intermediate', '9156 Metcalf Ave, Overland Park, KS 66212', '2021-10-01 20:00', '1'),
-	('Takaido', 4, 'Novice', '9156 Metcalf Ave, Overland Park, KS 66212', '2021-10-08 20:00', '1'),
+	('Tokaido', 4, 'Novice', '9156 Metcalf Ave, Overland Park, KS 66212', '2021-09-24 20:00', '1'),
+	('Tokaido', 4, 'Intermediate', '9156 Metcalf Ave, Overland Park, KS 66212', '2021-10-01 20:00', '1'),
+	('Tokaido', 4, 'Novice', '9156 Metcalf Ave, Overland Park, KS 66212', '2021-10-08 20:00', '1'),
 	
 	-- HAPPYGILMORE
 	('Risk', 4, 'Expert', '2425 Grand Blvd, Kansas City, MO 64108', '2021-10-01 19:30', '2'),
@@ -33,7 +61,7 @@ VALUES
 	('Catch Phrase', 8, 'Novice', '50 E 13th St Ste 200, Kansas City, MO 64106', '2021-10-02 18:45', '3'),
 
 	-- PATRICK MAHOMES
-	('Monoply', 4, 'Novice', '1 Arrowhead Dr, Kansas City, MO 64129', '2021-09-23 18:00', '4'),
+	('Monopoly', 4, 'Novice', '1 Arrowhead Dr, Kansas City, MO 64129', '2021-09-23 18:00', '4'),
 	('Scrabble', 4, 'Expert', '1 Arrowhead Dr, Kansas City, MO 64129', '2021-10-07 17:00', '4'),
 	
 	-- TSWIFT -- She can just be a user that doesn't make any games id 5

@@ -24,8 +24,8 @@ router.post('/', rejectUnauthenticated,(req, res) => {
         req.body.userInputs.experience,         // $3
         req.body.userInputs.location,           // $4
         req.body.userInputs.dateTime,           // $5
-        req.body.description,                   // $6
-        req.body.image,                         // $7
+        req.body.image,                         // $6
+        req.body.description,                   // $7
         req.user.id,                            // $8
     ];
 

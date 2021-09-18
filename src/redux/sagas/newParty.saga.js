@@ -17,8 +17,8 @@ function* createParty(action) {
         console.log('action.payload', action.payload);
         yield combineData = {
             userInputs: action.payload,
-            description: response.data[0].description,
-            image: response.data[0].images.medium
+            description: response.data[0].description_preview,
+            image: response.data[0].images.small
         }
         
         yield axios.post('/api/create_party', combineData);

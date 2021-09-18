@@ -117,4 +117,13 @@ input {
 
 
 
+.apiImages{
+  /* Size for card */
+  width: 286;
+  height: 180;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 

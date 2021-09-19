@@ -1,14 +1,28 @@
 /* ---------------------------------- 
    CARD STYLING ON SEARCH RESULTS
 -----------------------------------*/
+button {
+    margin: 5px;
+    padding: 5px;
+    border: 0ch;
+    color: white;
+    background: none;
+}
+
 .searchCards {
     width: 23rem;
-    height: 20rem;
+    height: 31rem;
     display:inline-block;
     margin: 10px;
     border-color: #fe8c00;
     border-width: 3px;
+    border-style: outset;
     background-color: white;
+}
+
+.searchCardBody{
+    text-align: center;
+    display: block;
 }
 
 .searchCardBtn{
@@ -22,11 +36,6 @@
     background-color: #080137;
 }
 
-.searchCardBody{
-    text-align: center;
-    display: block;
-}
-
-.searchCardBtn:hover {
+.cardBtn:hover {
   color: #fe8c00;
 }

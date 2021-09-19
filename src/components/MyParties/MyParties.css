@@ -13,11 +13,13 @@ p {
 
 .card {
     width: 23rem;
-    height: 31rem;
+    height: 30rem;
     display:inline-block;
     margin: 10px;
     border-color: #fe8c00;
     border-width: 3px;
+    border-style: outset;
+    background-color: white;
 }
 
 .cardBody{

@@ -70,13 +70,14 @@ function Dashboard() {
     console.log('party id', party.id);
     console.log('party owner id', party.owner_id);
     console.log('party owner username', party.username);
-    formatDate(date)
+  
     let joinInfo = {
       partyId: party.id,
       partyOwnerId: party.owner_id,
       owner: party.username,
       board_game: party.board_game,
-      address: party.location
+      address: party.location,
+      email: party.email
     }
 
     // Double checks that the user asking to join isn't the owner

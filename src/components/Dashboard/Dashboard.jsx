@@ -131,19 +131,23 @@ function Dashboard() {
               <h5 class="modal-title" id="exampleModalLabel">{info.board_game}</h5>
             </div>
             <div class="modal-body">
+              <img class="card-img-top" src={info.image} className="apiImages" />
               <h6 class="card-subtitle mb-2 text-muted">{info.location}</h6>
               <p class="card-text">Created by: {info.username}</p>
               <p class="card-text">Number of Players: {info.number_of_players}</p>
               <p class="card-text">Experience: {info.experience}</p>
+ 
 
               <div>
                 Current Players:
                 {players.map((player, index) => (
                   <div key={index}>
                     <li>{player.username}</li>
-                  </div>
+                </div>
                 ))}
               </div>
+                <br />
+                <p class="card-text">{info.description}</p>
             </div>
           </div>
         </div>

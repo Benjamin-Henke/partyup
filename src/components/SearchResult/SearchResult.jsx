@@ -99,7 +99,6 @@ export default function SearchResult() {
                                         <p class="card-text">Experience: {game.experience}</p>
                                         <p class="card-text">{formatDate(game.date_time)}</p>
                                         <p class="card-text">{formatTime(game.date_time)}</p>
-                                        <button>Hello</button>
                                         <div className="cardBtns">
                                             <button
                                                 name="info"
@@ -133,6 +132,7 @@ export default function SearchResult() {
                                         <h5 class="modal-title" id="exampleModalLabel">{info.board_game}</h5>
                                     </div>
                                     <div class="modal-body">
+
                                         <p class="card-text">{info.description}</p>
 
                                         <div>

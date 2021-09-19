@@ -69,7 +69,7 @@ function Nav() {
 
 
 
-        <ul class="nav justify-content-center">
+        <ul class="nav justify-content-left">
           <div className="navSearch">
             <form
               onSubmit={searchForBoardGame}>

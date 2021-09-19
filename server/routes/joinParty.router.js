@@ -21,8 +21,8 @@ router.post('/', rejectUnauthenticated, (req, res) => {
         return;
     } else {
         sqlText = `
-        INSERT INTO "users_parties" ("users_id", "parties_id")
-        VALUES ($1, $2);
+            INSERT INTO "users_parties" ("users_id", "parties_id")
+            VALUES ($1, $2);
         `;
 
         sqlParams = [
@@ -48,7 +48,7 @@ router.post('/', rejectUnauthenticated, (req, res) => {
     
     const outputTxt = `
         <p>Hello, ${req.body.owner}</p>
-        <p>${req.user.username} would like to join your game of ${req.body.board_game} at ${req.body.address}</p>
+        <p>${req.user.username} would like to join your game of ${req.body.board_game} at ${req.body.email}</p>
 
         <p>Please check log in to your account if you would like to change your player lineup</p>
 

@@ -35,11 +35,14 @@ p {
 .cardHeader{
     display:flex;
     background-color: black;
+    
 }
 
 .upcomingCards{
     background-color: white;
-    margin: 10px;
+    margin: 12px;
+    padding: 5px;
+    text-align: center;
 }
 
 .upcomingBtns{
@@ -59,7 +62,7 @@ p {
 
 .upcomingH5{
     color: white;
-    padding: 2px;
-    padding-left: 5px;
-    padding-top: 10px;
+    background-color: black;
+    padding: 10px;
+    text-align: center;
 }

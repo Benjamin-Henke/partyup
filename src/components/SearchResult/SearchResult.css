@@ -41,7 +41,8 @@ button {
 }
 
 #clearBtn {
-    color: #080137
+    color: #080137;
+    font-size: 30px;
 }
 
 #clearBtn:hover {

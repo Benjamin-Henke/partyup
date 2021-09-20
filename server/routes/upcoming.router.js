@@ -17,7 +17,10 @@ router.get('/', rejectUnauthenticated, (req, res) => {
            "parties"."location",
            "date_time",
            "user"."username",
+           "user"."email",
            "experience",
+           "image",
+           "description",
            "owner_id"
         FROM "parties"
         JOIN "user"

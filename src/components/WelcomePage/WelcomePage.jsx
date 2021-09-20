@@ -1,8 +1,11 @@
 export default function WelcomePage() {
     return (
         <div id="welcomeMessage">
-            <h1>Welcome to PartyUp</h1>
-            <h4>Starting searching for games to join and play!</h4>
+            <h4>START SEARCHING FOR GAMES TO JOIN AND PLAY!</h4>
+            <img 
+                src="http://pngimg.com/uploads/dice/dice_PNG113.png"
+                height="780px"
+            />
         </div>
     )
 }

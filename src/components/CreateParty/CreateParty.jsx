@@ -55,7 +55,7 @@ export default function CreateParty() {
             dateTime: momentObj
         }
 
-        console.log(createdParty);
+        console.log('Created Party',createdParty);
 
         dispatch({
             type: "NEW_PARTY_CREATED",

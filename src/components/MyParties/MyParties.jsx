@@ -27,14 +27,10 @@ export default function MyParties() {
 
 
     return (
-        <div>
+        <>
             {usersParties.map((party, index) => (
-                <div className="card">
-                    <div class="card-body">
-                        <PartiesCard party={party} index={index} />
-                    </div>
-                </div>
+                <PartiesCard party={party} index={index} />
             ))}
-        </div>
+        </>
     )
 }

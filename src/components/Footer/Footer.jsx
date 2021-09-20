@@ -9,11 +9,12 @@ import { Link } from 'react-router-dom';
 // or even care what the redux state is, so it doesn't need 'connect()'
 
 function Footer() {
-  return <footer>  
+  return ( <footer>  
     <Link className="about" to="/about">
       About
     </Link>
-  </footer>;
+  </footer>
+  )
 }
 
 export default Footer;

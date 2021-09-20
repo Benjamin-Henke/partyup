@@ -1,19 +1,26 @@
-.aboutPageH3{
+pre{
     color: white;
 }
 
 pre{
-     color: white;
+
     font-size: 20px;
 }
 
+.aboutPageH3 {
+    color: white;
+}
 .mainContainer{
-    margin-top: 20px;
+    height: 100%;
+    width: 100%;
+    padding-top: 35px;
     text-align: center;
+    background-color: rgba(11, 11, 11, 0.653);
 }
 
 .footer{
     text-align: center;
-    margin-top: 45%;
+    margin-top: 39%;
+    padding-bottom: 20px;
     color: white;
 }

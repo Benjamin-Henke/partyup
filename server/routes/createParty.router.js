@@ -9,19 +9,24 @@ const {
 
 // POST users inputs to the database
 router.post('/', rejectUnauthenticated,(req, res) => {
+    console.log('Info to insert into DB', req.body);
+    
+
     const sqlText = `
-        INSERT INTO "parties" ("board_game", "number_of_players", "experience", "location", "date_time", "owner_id")
-        VALUES ($1, $2, $3, $4, $5, $6)
+        INSERT INTO "parties" ("board_game", "number_of_players", "experience", "location", "date_time", "image", "description", "owner_id")
+        VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
         RETURNING "id";
         `;
 
     const sqlParams = [
-        req.body.boardGame,
-        req.body.numberOfPlayers,
-        req.body.experience,
-        req.body.location,
-        req.body.dateTime,
-        req.user.id,
+        req.body.userInputs.boardGame,          // $1
+        req.body.userInputs.numberOfPlayers,    // $2
+        req.body.userInputs.experience,         // $3
+        req.body.userInputs.location,           // $4
+        req.body.userInputs.dateTime,           // $5
+        req.body.image,                         // $6
+        req.body.description,                   // $7
+        req.user.id,                            // $8
     ];
 
     // First Query makes the party

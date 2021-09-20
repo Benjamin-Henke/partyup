@@ -1,35 +1,41 @@
+h3 {
+  color: black;
+  padding-top: 20px;
+}
+
+
 .logoutBtn {
-  display:block ;
   color: #fe8c00;
-  text-align: center;
+  
   padding: 24px 10px;
   text-decoration: wavy;
   font-size: 25px;
   
-
-
   /* these last two make the logout button in
   the nav bar look like another link */
-  border: none;
   cursor: pointer;
-  outline: 0;
 }
 
 .logoutBtn:hover {
-  color: #500041;
+  color: black;
 }
 
-.infoPageH3{
-  color: black;
-  text-align: center;
-  padding: 10px;
-}
 .infoMainContainer{
   background-color: white;
-  border-style: solid;
-  border-color:  #fe8c00;
-  color: white;
-  margin-top: 20px;
-  margin-left: 30%;
-  margin-right: 30%;
+  padding: 20px;
+  width: 40%;
+  color: black;
+  margin-left: auto;
+  margin-right: auto;
+  border-color: #fe8c00;
+  border-width: 3px;
+  border-style: outset;
+}
+
+.outsideContainer{
+  background-color: rgba(11, 11, 11, 0.653);
+  padding-top: 50px;
+  padding-bottom: 560px;
+  height: 100%;
+  width: 100%;
 }

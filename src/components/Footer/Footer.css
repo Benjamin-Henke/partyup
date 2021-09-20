@@ -1,15 +1,12 @@
 footer {
-  display:inline-block;
-  justify-content: space-between;
-  margin-top: auto;
-  background-color: #000000;
-  position: fixed;
-  left: 0;
-  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  height: 5%;
-  text-align: center;
-  padding: 5px;
+  height: 40px;
+  bottom: 0;
+  position: fixed;
+  background-color: black;
 }
 
 .about{

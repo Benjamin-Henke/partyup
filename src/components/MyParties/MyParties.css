@@ -2,23 +2,55 @@ button {
     margin: 5px;
     padding: 5px;
     border: 0ch;
-    color: #080137;
+    color: white;
     background: none;
 }
-button:hover {
-  color: #fe8c00;
-  text-decoration: none;
+
+
+p {
+  font-size: 18px;
 }
 
 .card {
-    width: 20rem;
+    width: 23rem;
+    height: 30rem;
     display:inline-block;
     margin: 10px;
     border-color: #fe8c00;
     border-width: 3px;
+    border-style: outset;
+    background-color: white;
+}
+
+.cardBody{
+  text-align: center;
+  display: block;
 }
 
 
 .delModalBtn{
   color: red
+}
+
+.cardBtns{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 55px;
+  bottom: 0;
+  position: absolute;
+  background-color: #080137;
+}
+
+.partyCardBtn:hover {
+  color: #fe8c00;
+}
+
+.cardEditInputs{
+  width: 70%;
+}
+
+#partyLocation{
+  font-size: 15px;
 }

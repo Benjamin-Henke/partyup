@@ -1,0 +1,50 @@
+/* ---------------------------------- 
+   CARD STYLING ON SEARCH RESULTS
+-----------------------------------*/
+button {
+    margin: 5px;
+    padding: 5px;
+    border: 0ch;
+    color: white;
+    background: none;
+}
+
+.searchCards {
+    width: 23rem;
+    height: 31rem;
+    display:inline-block;
+    margin: 10px;
+    border-color: #fe8c00;
+    border-width: 3px;
+    border-style: outset;
+    background-color: white;
+}
+
+.searchCardBody{
+    text-align: center;
+    display: block;
+}
+
+.searchCardBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 55px;
+    bottom: 0;
+    position: absolute;
+    background-color: #080137;
+}
+
+.cardBtn:hover {
+  color: #fe8c00;
+}
+
+#clearBtn {
+    color: #080137
+}
+
+#clearBtn:hover {
+    color: #fe8c00;
+    text-decoration:wavy;
+}

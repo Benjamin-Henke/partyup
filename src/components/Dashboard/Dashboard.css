@@ -47,3 +47,9 @@
     text-align: center;
 }
 
+#WelcomeMessage {
+    border: outset;
+    border-style: outset;
+    background-color: white;
+    padding: 5px;
+}

@@ -12,7 +12,7 @@ function AboutPage() {
       <div class="mainContainer">
         <h3 className="aboutPageH3">Technology Used</h3>
         <br />
-        <pre>React    React-Redux   Redux-Saga    Node    Express    Posgresql   Bootstrap    Nodemailer    BoardGameAtlasAPI</pre>
+        <pre>React    React-Redux   Redux-Saga    Node    Express    PosgreSQL   Bootstrap    Nodemailer    BoardGameAtlasAPI</pre>
         
       
         <div className="footer">

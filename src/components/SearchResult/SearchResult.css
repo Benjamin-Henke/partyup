@@ -39,3 +39,12 @@ button {
 .cardBtn:hover {
   color: #fe8c00;
 }
+
+#clearBtn {
+    color: #080137
+}
+
+#clearBtn:hover {
+    color: #fe8c00;
+    text-decoration:wavy;
+}

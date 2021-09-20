@@ -1,4 +1,4 @@
-h3, pre{
+pre{
     color: white;
 }
 
@@ -7,6 +7,9 @@ pre{
     font-size: 20px;
 }
 
+.aboutPageH3 {
+    color: white;
+}
 .mainContainer{
     height: 100%;
     width: 100%;

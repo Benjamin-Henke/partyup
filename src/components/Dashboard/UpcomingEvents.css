@@ -2,9 +2,7 @@ p {
     font-size: 14px;
 }
 
-h5 {
-    color: white;
-}
+
 
 .upcomingCards {
     text-align: left;
@@ -55,8 +53,13 @@ h5 {
 }
 
 .upcomingBtnsContainer{
-    position:fixed;
-    right: 81%;
+    background-color: black;
+    text-align: center;
+}
 
-
+.upcomingH5{
+    color: white;
+    padding: 2px;
+    padding-left: 5px;
+    padding-top: 10px;
 }

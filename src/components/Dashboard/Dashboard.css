@@ -18,7 +18,7 @@
     margin-left: 25px;
     width: 84%;
     height: 85vh;
-    background-color: rgba(255, 255, 255, 0.450);
+    background-color: rgba(255, 255, 255, 0.300);
 } 
 
 #searchResults {
@@ -30,7 +30,7 @@
     width: 90%;
     height: 85vh;
     margin-left: 20px;
-    background-color: rgba(255, 255, 255, 0.450);
+    background-color: rgba(255, 255, 255, 0.300);
 }
 
 #upcomingEvents{

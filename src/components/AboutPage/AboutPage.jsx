@@ -12,11 +12,12 @@ function AboutPage() {
       <div class="mainContainer">
         <h3 className="aboutPageH3">Technology Used</h3>
         <br />
-        <pre>React    React-Redux   Redux-Saga    Node    Express    Posgresql   Bootstrap    Nodemailer</pre>
+        <pre>React    React-Redux   Redux-Saga    Node    Express    Posgresql   Bootstrap    Nodemailer    BoardGameAtlasAPI</pre>
         
-      </div>
-      <div className="footer">
-        <p>&copy; Benjamin Henke 2021 </p>
+      
+        <div className="footer">
+          <p>&copy; Benjamin Henke 2021 </p>
+        </div>
       </div>
     </>
   );

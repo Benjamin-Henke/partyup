@@ -45,7 +45,7 @@
  
   text-align: center;
   justify-content: center;
-  padding: 10px 8px;
+  padding: 10px 15px;
   text-decoration: none;
   font-size: 15px;
 }
@@ -59,7 +59,7 @@
 }
 
 .navSearch{
-  margin-top: 10px;
+  margin-top: 15px;
   display: flex;
   vertical-align: center;
   width: 45%;
@@ -71,5 +71,13 @@
 }
 .searchBtn:hover{
   color: #500041;
+}
+
+#findBoardGame{
+  width: 190px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  margin-right: 6px;
+  margin-left: 6px;
 }
 

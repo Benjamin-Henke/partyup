@@ -10,9 +10,9 @@ function AboutPage() {
   return (
     <>
       <div class="mainContainer">
-        <h3 className="aboutPageH3">Technology Used</h3>
+        <pre className="aboutPageH3">Technology Used</pre>
         <br />
-        <pre>React    React-Redux   Redux-Saga    Node    Express    PosgreSQL   Bootstrap    Nodemailer    BoardGameAtlasAPI</pre>
+        <pre>React    React-Redux   Redux-Saga    Node    Express    PosgreSQL    CSS     Bootstrap    Nodemailer    BoardGameAtlasAPI</pre>
         
       
         <div className="footer">

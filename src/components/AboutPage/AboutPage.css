@@ -1,14 +1,11 @@
 pre{
     color: white;
-}
-
-pre{
-
     font-size: 20px;
 }
 
 .aboutPageH3 {
     color: white;
+    font-size: 28px;
 }
 .mainContainer{
     height: 100%;
@@ -21,6 +18,6 @@ pre{
 .footer{
     text-align: center;
     margin-top: 39%;
-    padding-bottom: 20px;
+    padding-bottom: 25px;
     color: white;
 }

@@ -3,9 +3,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import './Nav.css';
 
+import LigInForm from '../LoginPage/LoginPage'
+
 
 function Nav() {
   const dispatch = useDispatch();
+  const user = useSelector((store) => store.user);
 
   /* ----------------------------------
     SEARCH BARS
@@ -60,19 +63,16 @@ function Nav() {
   return (
     <div className="test">
 
-
+    {/* 
+      SHOW NAVBAR WHEN USER IS LOGGED IN
+      IF NOT, SHOW LOG IN SCREEN
+    */}
+ 
         <nav class="nav">
           <div className="appName">
             <h2 id="partyUp">PARTY <br /> UP</h2>
           </div>
         </nav>
-
-
-
-        {/* <ul class="nav justify-content-end">
-          
-        </ul> */}
-
 
         <ul class="nav justify-content-end">
           <div className="navSearch">
@@ -81,7 +81,7 @@ function Nav() {
               <input
                 id="findBoardGame"
                 type="text"
-                placeholder="Find games by name"
+                placeholder="find games by title"
                 value={findBoardGame}
                 onChange={handleFindBoardGameChange}
               />
@@ -126,6 +126,7 @@ function Nav() {
             Account
           </Link>
         </ul>
+
 
 
     </div>

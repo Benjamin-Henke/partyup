@@ -114,10 +114,7 @@ function Dashboard() {
           <div id="cardContainers" class="overflow-auto">
             {upcoming.map((party, index) =>
               <div class="card" className="upcomingCards" key={index}>
-                <div className="cardHeader">
                   <h5 class="card-header" className="upcomingH5"> {party.board_game}</h5>
-                  
-                </div>
                 <div class="card-body">
                   <p>{formatDate(party.date_time)}</p>
                   <p>{formatTime(party.date_time)}</p>

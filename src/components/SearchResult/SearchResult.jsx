@@ -7,6 +7,7 @@ import './SearchResult.css';
 
 
 export default function SearchResult() {
+    const user = useSelector((store) => store.user);
     const dispatch = useDispatch();
     const info = useSelector(store => store.partyInfo);
     const players = useSelector(store => store.currentPlayersReducer);
@@ -44,11 +45,18 @@ export default function SearchResult() {
         console.log('Joining', party);
         console.log('party id', party.id);
         console.log('party owner id', party.owner_id);
-        console.log('number of players', party.number_of_players);
+        console.log('party owner username', party.username);
+        const date = formatDate(party.date_time);
+
+
         let joinInfo = {
             partyId: party.id,
             partyOwnerId: party.owner_id,
-            players: party.number_of_players
+            owner: party.username,
+            board_game: party.board_game,
+            address: party.location,
+            email: party.email,
+            date: date,
         }
 
         // Double checks that the user asking to join isn't the owner

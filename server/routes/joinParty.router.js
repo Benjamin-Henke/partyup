@@ -37,12 +37,12 @@ router.post('/', rejectUnauthenticated, (req, res) => {
 
         // SEND EMAIL TO OWNER THAT A PLAYER HAS JOINED
         const outputTxt = `
-        <p>Hello, ${req.body.owner}</p>
-        <p>${req.user.username} would like to join your game of ${req.body.board_game}</p>
+        <p>Hello ${req.body.owner},</p>
+        <p>${req.user.username} would like to join your game of ${req.body.board_game} on ${req.body.date}.</p>
 
-        <p>Please check log in to your account if you would like to change your player lineup</p>
+        <p>Please log in to your account to check your lineup if you would like to make changes.</p>
 
-        <p>Sincerely,</p>
+        <p>Happy Gaming!</p>
         <p>PartyUp Team</p>
     `;
 

@@ -10,7 +10,11 @@ PartyUp allows you to create new events for other players to join. Or, you can s
 
 
 ## Screenshots
-[![Screen-Shot-2021-09-25-at-6-01-42-PM.png](https://i.postimg.cc/sfK4SVvS/Screen-Shot-2021-09-25-at-6-01-42-PM.png)](https://postimg.cc/HjcM110s)
+[![Screen-Shot-2021-09-25-at-6-13-36-PM.png](https://i.postimg.cc/15rX4tXh/Screen-Shot-2021-09-25-at-6-13-36-PM.png)](https://postimg.cc/nCMpPnq0)
+
+[![Screen-Shot-2021-09-25-at-6-14-46-PM.png](https://i.postimg.cc/j2QxWgsQ/Screen-Shot-2021-09-25-at-6-14-46-PM.png)](https://postimg.cc/YL0KZxLh)
+
+[![Screen-Shot-2021-09-25-at-6-12-11-PM.png](https://i.postimg.cc/ZqRCGSTk/Screen-Shot-2021-09-25-at-6-12-11-PM.png)](https://postimg.cc/3ks8Gz49)
 
 ## Built With
 * JavaScript

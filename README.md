@@ -1,5 +1,5 @@
 
-# PartyUp
+# PARTYUP
 
 ## Description
 *Duration: Two Weeks*

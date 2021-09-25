@@ -39,3 +39,7 @@ PartyUp allows you to create new events for other players to join. Or, you can s
 [2]: https://www.postgresql.org/
 [3]: https://nodemon.io/
 [4]: https://reactjs.org/
+
+### Installing 
+1. Create a database named 'partyup'
+2. 

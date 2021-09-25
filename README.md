@@ -25,10 +25,10 @@ PartyUp allows you to create new events for other players to join. Or, you can s
 
 ## Getting Started
 ### Prerequisites
-* [Node.js] [1]
-* [PostgreSQL] [2]
-* [Nodemon] [3]
-* [React.js] [4]
+* [Node.js][1]
+* [PostgreSQL][2]
+* [Nodemon][3]
+* [React.js][4]
 
 [1]: https://nodejs.org/en/
 [2]: https://www.postgresql.org/

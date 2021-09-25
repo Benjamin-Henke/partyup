@@ -50,6 +50,22 @@ PartyUp allows you to create new events for other players to join. Or, you can s
 1. Create a database named `partyup`
 2. Queries in `database.sql` are set up to create all the necessary tables and generate the needed data to run the application correctly. This project is built on [Postgres][1], be sure that is installed first before proceeding. I used [Postico][2] to execute my queries but other options will work too.
 3. Open your editor of choice and run `npm install`
+4. Run `npm run server` in one terminal
+5. Run `npm run client` in a second terminal. This will open a new browser tab with the project.
 
 [1]: https://www.postgresql.org/]
 [2]: https://eggerapps.at/postico/
+
+### Completed Features
+
+- [x] Create a new party
+- [x] Edit a previously made party and it's members
+- [x] Browse parties via Upcoming Events, by title, or by date
+- [x] Join a players game and app will automatically send email (previous setup required)
+
+### Future Features
+
+
+### Author
+
+Benjamin Henke

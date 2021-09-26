@@ -19,7 +19,7 @@ router.post('/', rejectUnauthenticated,(req, res) => {
         `;
 
     const sqlParams = [
-        req.body.userInputs.boardGame,          // $1
+        req.body.name,                          // $1
         req.body.userInputs.numberOfPlayers,    // $2
         req.body.userInputs.experience,         // $3
         req.body.userInputs.location,           // $4

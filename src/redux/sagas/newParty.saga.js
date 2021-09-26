@@ -17,6 +17,7 @@ function* createParty(action) {
         console.log('action.payload', action.payload);
         yield combineData = {
             userInputs: action.payload,
+            name: response.data[0].name,
             description: response.data[0].description_preview,
             image: response.data[0].images.small
         }

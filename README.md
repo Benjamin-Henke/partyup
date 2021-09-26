@@ -39,11 +39,13 @@ PartyUp allows you to create new events for other players to join. Or, you can s
 * [PostgreSQL][2]
 * [Nodemon][3]
 * [React.js][4]
+* [BoardGameAtlasAPI][5] Access Token
 
 [1]: https://nodejs.org/en/
 [2]: https://www.postgresql.org/
 [3]: https://nodemon.io/
 [4]: https://reactjs.org/
+[5]: https://www.boardgameatlas.com/
 
 ### Installing 
 
@@ -64,8 +66,10 @@ PartyUp allows you to create new events for other players to join. Or, you can s
 - [x] Join a players game and app will automatically send email (previous setup required)
 
 ## Future Features
+- [] Create in an app messaging system
+- [] Allow users to look for events on a map
+- [] Mobile version
 
+## Support 
 
-## Author
-
-Benjamin Henke
+If you have any issues or suggestions, please email me at benjaminmhenke@gmail.com 

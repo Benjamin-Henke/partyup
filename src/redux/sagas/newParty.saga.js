@@ -12,7 +12,7 @@ function* createParty(action) {
         const response = yield axios.get('/api/board_game_atlas', { params: { boardGame: action.payload.boardGame }});
         console.log('action.payload', action.payload);
         console.log('Results from Board Game Atlas API:', response.data);
-        console.log('Description', response.data[0].description);
+        console.log('Description', response.data[0].description_preview);
         console.log('Images', response.data[0].images.medium);
         console.log('action.payload', action.payload);
         yield combineData = {

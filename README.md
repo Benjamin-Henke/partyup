@@ -56,16 +56,16 @@ PartyUp allows you to create new events for other players to join. Or, you can s
 [1]: https://www.postgresql.org/]
 [2]: https://eggerapps.at/postico/
 
-### Completed Features
+## Completed Features
 
 - [x] Create a new party
 - [x] Edit a previously made party and it's members
 - [x] Browse parties via Upcoming Events, by title, or by date
 - [x] Join a players game and app will automatically send email (previous setup required)
 
-### Future Features
+## Future Features
 
 
-### Author
+## Author
 
 Benjamin Henke

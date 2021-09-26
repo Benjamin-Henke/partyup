@@ -57,12 +57,12 @@ router.post('/', rejectUnauthenticated, (req, res) => {
 
             // create reusable transporter object using the default SMTP transport
             let transporter = nodemailer.createTransport({
-                host: "smtp.gmail.com",
+                host: "smtp.gmail.com", // from google
                 port: 587,
                 secure: false, // true for 465, false for other ports
                 auth: {
-                    user: 'partyup.test.prime@gmail.com', // generated ethereal user
-                    pass: 'Test!ng123', // generated ethereal password
+                    user: 'partyup@partyup.com', // input your email address here, this is not a real address
+                    pass: '', // input your email password here
                 },
                 tls: {
                     rejectUnauthorized: false
@@ -71,7 +71,7 @@ router.post('/', rejectUnauthenticated, (req, res) => {
 
             // send mail with defined transport object
             let info = await transporter.sendMail({
-                from: '"Party Up" <partyup.test.prime@gmail.com>', // sender address
+                from: '"Party Up" <partyup@partyup.com>', // sender address, will need to match auth
                 to: req.body.email, // list of receivers
                 subject: "New Player Joined", // Subject line
                 text: 'Hello', // plain text body
@@ -88,68 +88,11 @@ router.post('/', rejectUnauthenticated, (req, res) => {
 
         main().catch(console.error);
 
-
-
     }).catch(error => {
         console.error('Join Party Post Error', error);
         res.sendStatus(500);
     })
 });
 
-// // POST used to send email to user
-// router.post('/', rejectUnauthenticated, (req, res) => {
-//     console.log('party info', req.body);
-    
-//     console.log('owner username', req.body.owner);
-    
-//     const outputTxt = `
-//         <p>Hello, ${req.body.owner}</p>
-//         <p>${req.user.username} would like to join your game of ${req.body.board_game} at ${req.body.email}</p>
-
-//         <p>Please check log in to your account if you would like to change your player lineup</p>
-
-//         <p>Sincerely,</p>
-//         <p>PartyUp Team</p>
-//     `;
-
-//     "use strict";
-//     const nodemailer = require("nodemailer");
-
-//     // async..await is not allowed in global scope, must use a wrapper
-//     async function main() {
-//         // Generate test SMTP service account from ethereal.email
-//         // Only needed if you don't have a real mail account for testing
-//         let testAccount = await nodemailer.createTestAccount();
-
-//         // create reusable transporter object using the default SMTP transport
-//         let transporter = nodemailer.createTransport({
-//             host: "smtp.gmail.com",
-//             port: 587,
-//             secure: false, // true for 465, false for other ports
-//             auth: {
-//                 user: 'partyup.test.prime@gmail.com', // generated ethereal user
-//                 pass: 'test123', // generated ethereal password
-//             },
-//         });
-
-//         // send mail with defined transport object
-//         let info = await transporter.sendMail({
-//             from: '"Party Up" <partyup.test.prime@gmail.com>', // sender address
-//             to: req.body.email, // list of receivers
-//             subject: "New Player Joined", // Subject line
-//             text: 'Hello', // plain text body
-//             html: outputTxt, // html body
-//         });
-
-//         console.log("Message sent: %s", info.messageId);
-//         // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
-
-//         // Preview only available when sending through an Ethereal account
-//         console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
-//         // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
-//     }
-
-//     main().catch(console.error);
-// })
 
 module.exports = router;

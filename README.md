@@ -5,7 +5,7 @@
 
 *Duration: Two Weeks*
 
-PartyUp is a social media platform that allows board game enthusiasts to connect with one another and a new game or their favorite game.
+PartyUp is a social media platform that allows board game enthusiasts to connect with one another to play new games or their favorites.
 
 PartyUp allows you to create new events for other players to join. Or, you can search for other parties by title of a game or by a specific date.
 
@@ -47,7 +47,7 @@ PartyUp allows you to create new events for other players to join. Or, you can s
 [4]: https://reactjs.org/
 [5]: https://www.boardgameatlas.com/
 
-### Installing 
+### Installation
 
 1. Create a database named `partyup`
 2. Queries in `database.sql` are set up to create all the necessary tables and generate the needed data to run the application correctly. This project is built on [Postgres][1], be sure that is installed first before proceeding. I used [Postico][2] to execute my queries but other options will work too.
